@@ -11,6 +11,7 @@ namespace FlightLib
         // Atributos
 
         string id; // identificador
+        Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
@@ -19,16 +20,50 @@ namespace FlightLib
         public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
             this.id = id;
+            this.initialPosition = new Position(cpx, cpy);
             this.currentPosition = new Position(cpx, cpy);
             this.finalPosition = new Position(fpx, fpy);
             this.velocidad = velocidad;
         }
 
-        // Metodos
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+        public Position GetCurrentPosition()
+        {
+            return currentPosition;
+        }
+        public void SetCurrentPosition(double x, double y)
+        {
+            currentPosition = new Position(x, y);
+        }
+
+        public void SetID(string id)
+        {
+            this.id = id;
+        }
+        public string GetID()
+        {
+            return id;
+        }
 
         public void SetVelocidad(double velocidad)
-        // setter del atributo velocidad
-        { this.velocidad = velocidad; }
+        {
+            this.velocidad = velocidad;
+        }
+        public double GetVelocidad()
+        {
+            return this.velocidad;
+        }
+
+        public Position GetFinalPosition()
+        {
+            return this.finalPosition;
+        }
+        public void SetFinalPosition(double x, double y)
+        {
+            this.finalPosition = new Position(x, y);
+        }
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         public void Mover(double tiempo)
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
@@ -49,9 +84,13 @@ namespace FlightLib
 
             // Modificar MoverVuelo para que no se pase del destino
             if (currentPosition.Distancia(nextPosition) < hipotenusa)
+            {
                 currentPosition = nextPosition;
+            }
             else
+            {
                 currentPosition = finalPosition;
+            }
 
         }
 
@@ -60,8 +99,9 @@ namespace FlightLib
         {
             bool resultado = false;
             if (currentPosition == finalPosition)
+            {
                 resultado = true;
-
+            }
             return resultado;
         }
 
@@ -71,7 +111,9 @@ namespace FlightLib
             bool conclicto = false;
 
             if (this.currentPosition.Distancia(b.currentPosition) < distanciaSeguridad)
+            {
                 conclicto = true;
+            }
 
             return conclicto;
         }
@@ -85,8 +127,21 @@ namespace FlightLib
             Console.WriteLine("Velocidad: {0:F2}", velocidad);
             Console.WriteLine("Posición actual: ({0:F2}, {1:F2})", currentPosition.GetX(), currentPosition.GetY());
             if (this.EstaDestino())
+            {
                 Console.WriteLine("Ha llegado al destino");
+            }
             Console.WriteLine("******************************");
+        }
+
+        public void Restart()
+        {
+            this.SetCurrentPosition(initialPosition.GetX(), initialPosition.GetY());
+        }
+
+        public double Distancia(FlightPlan b)
+        {
+            double d = Math.Sqrt((b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) * (b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) + (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()) * (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()));
+            return d;
         }
     }
 }
