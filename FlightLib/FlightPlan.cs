@@ -67,9 +67,6 @@ namespace FlightLib
 
 
 
-       // hola mola
-
-
         public void Mover(double tiempo)
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         {
@@ -100,7 +97,7 @@ namespace FlightLib
         }
 
         // Hacer un metodo que diga si un vuelo ha llegado a su destino
-        public bool EstaDestino()
+        public bool HasArrived()
         {
             bool resultado = false;
             if (currentPosition == finalPosition)
@@ -131,7 +128,7 @@ namespace FlightLib
             Console.WriteLine("Identificador: {0}", id);
             Console.WriteLine("Velocidad: {0:F2}", velocidad);
             Console.WriteLine("Posición actual: ({0:F2}, {1:F2})", currentPosition.GetX(), currentPosition.GetY());
-            if (this.EstaDestino())
+            if (this.HasArrived())
             {
                 Console.WriteLine("Ha llegado al destino");
             }
@@ -148,5 +145,6 @@ namespace FlightLib
             double d = Math.Sqrt((b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) * (b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) + (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()) * (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()));
             return d;
         }
-    }
+
+        }
 }
