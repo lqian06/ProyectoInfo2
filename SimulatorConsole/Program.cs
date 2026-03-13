@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlightLib;
 
+//patata
 namespace SimulatorConsole
 {
     public class Program
