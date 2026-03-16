@@ -63,6 +63,16 @@ namespace FlightLib
         {
             this.finalPosition = new Position(x, y);
         }
+
+        public Position GetInitialPosition()
+        {
+            return this.initialPosition;
+        }
+        public void SetInitialPosition(double x, double y)
+        {
+            this.initialPosition = new Position(x, y);
+        }
+
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
