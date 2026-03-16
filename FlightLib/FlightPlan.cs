@@ -77,6 +77,11 @@ namespace FlightLib
 
 
 
+
+
+
+
+
         public void Mover(double tiempo)
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         {
@@ -156,5 +161,6 @@ namespace FlightLib
             return d;
         }
 
-        }
+ 
+    }
 }

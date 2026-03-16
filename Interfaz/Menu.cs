@@ -26,5 +26,21 @@ namespace Interfaz
         {
 
         }
+
+        private void Botón2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tRESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+   
+        }
+
+        private void uNOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3DistSegurTiempCicl form3 = new Form3DistSegurTiempCicl();
+            form3.Show();
+        }
     }
 }
