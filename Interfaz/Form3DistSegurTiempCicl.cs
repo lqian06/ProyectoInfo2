@@ -77,9 +77,21 @@ namespace Interfaz
 
         private void ClickBotón2(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
             this.Close();
+        }
+
+        public int GetDistancia()
+        {
+            if (string.IsNullOrEmpty(TextDistanciaSeguridad.Text)) return 0;
+            try { return Convert.ToInt32(TextDistanciaSeguridad.Text); }
+            catch { return 0; }
+        }
+
+        public int GetTiempo()
+        {
+            if (string.IsNullOrEmpty(TextTiempoCiclo.Text)) return 0;
+            try { return Convert.ToInt32(TextTiempoCiclo.Text); }
+            catch { return 0; }
         }
     }
 }

@@ -15,20 +15,27 @@ namespace Interfaz
     {
         List<FlightPlan> listaVuelos = new List<FlightPlan>();
         int radio = 10;
+        int distSeguridad;
+        int tCiclo;
         Timer timer = new Timer();
 
 
-        public FormLinea(FlightPlan vuelo1, FlightPlan vuelo2)
+        public FormLinea(FlightPlan vuelo1, FlightPlan vuelo2, int distancia, int tiempo)
         {
             InitializeComponent();
             listaVuelos.Add(vuelo1);
             listaVuelos.Add(vuelo2);
 
+            // Guardar datos
+            this.distSeguridad = distancia;
+            this.tCiclo = tiempo;
+
             this.DoubleBuffered = true;
             this.Paint += FormLinea_Paint;
             this.MouseClick += FormLinea_MouseClick;
 
-            timer.Interval = 100;
+            // asjutar timer
+            timer.Interval = tiempo;
             timer.Tick += Timer_Tick;
         }
         private void Timer_Tick(object sender, EventArgs e)
@@ -61,7 +68,7 @@ namespace Interfaz
                 {
                     timer.Stop();
 
-                    string estadoVuelo = vueloX.HasArrived() ? "¡HA LLEGADO!" : "En trayecto";
+                    string estadoVuelo = vueloX.HasArrived() ? "llego" : "ya va";
 
                     string info = $"DETALLES DEL VUELO\n\n" +
                                   $"ID: {vueloX.GetID()}\n" +
@@ -121,9 +128,9 @@ namespace Interfaz
                 }
 
                 // Círculo
-                using (Pen lapizRadar = new Pen(Color.Red, 2))
+                using (Pen lapizSeguro = new Pen(Color.FromArgb(100, Color.Orange), 1))
                 {
-                    e.Graphics.DrawEllipse(lapizRadar, (int)actual.GetX() - radio, (int)actual.GetY() - radio, radio * 2, radio * 2);
+                    e.Graphics.DrawEllipse(lapizSeguro, (int)actual.GetX() - distSeguridad, (int)actual.GetY() - distSeguridad, distSeguridad * 2, distSeguridad * 2);
                 }
 
                 // Avión

@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-    partial class Form2
+    partial class MenuAñadirPlan
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -138,11 +149,110 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Flight Plan B";
             // 
-            // Form2
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(578, 150);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 22);
+            this.textBox7.TabIndex = 12;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(578, 179);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 22);
+            this.textBox8.TabIndex = 13;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(578, 207);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(49, 22);
+            this.textBox9.TabIndex = 14;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(634, 207);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(44, 22);
+            this.textBox10.TabIndex = 15;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(578, 236);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(49, 22);
+            this.textBox11.TabIndex = 16;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(634, 235);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(44, 22);
+            this.textBox12.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(489, 153);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 16);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Identificador:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(491, 179);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Velocidad:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(473, 207);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 16);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Posicion inicial:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(483, 235);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Posicion final:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(340, 327);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Aceptar datos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // MenuAñadirPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -155,7 +265,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form2";
+            this.Name = "MenuAñadirPlan";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,5 +286,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
     }
 }
