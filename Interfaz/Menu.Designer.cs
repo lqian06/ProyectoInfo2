@@ -91,6 +91,7 @@
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
             this.menúToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menúToolStripMenuItem.Text = "Menú";
+            this.menúToolStripMenuItem.Click += new System.EventHandler(this.menúToolStripMenuItem_Click);
             // 
             // uNOToolStripMenuItem
             // 
@@ -118,6 +119,7 @@
             this.botón4ToolStripMenuItem.Name = "botón4ToolStripMenuItem";
             this.botón4ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.botón4ToolStripMenuItem.Text = "Botón 4";
+            this.botón4ToolStripMenuItem.Click += new System.EventHandler(this.botón4ToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -130,6 +132,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Menu";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
