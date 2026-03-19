@@ -13,46 +13,76 @@ namespace Interfaz
 {
     public partial class FormLinea : Form
     {
-        List<FlightPlan> listaVuelos = new List<FlightPlan>();
+        //List<FlightPlan> listaVuelos = new List<FlightPlan>();
+        FlightPlanList ListaVuelos = new FlightPlanList();
         int radio = 10;
         int distSeguridad;
         int tCiclo;
-        Timer timer = new Timer();
+        int segundos;
+        //Position inicioa, iniciob, currenta, currentb, finala, finalb;
+        //Timer timer = new Timer();
 
+        
 
-        public FormLinea(FlightPlan vuelo1, FlightPlan vuelo2, int distancia, int tiempo)
+        public FormLinea()
         {
             InitializeComponent();
-            listaVuelos.Add(vuelo1);
-            listaVuelos.Add(vuelo2);
-
-            // Guardar datos
-            this.distSeguridad = distancia;
-            this.tCiclo = tiempo;
-
+            /*timer.Interval = tiempo;
+            timer.Tick += Timer_Tick;
             this.DoubleBuffered = true;
             this.Paint += FormLinea_Paint;
-            this.MouseClick += FormLinea_MouseClick;
-
-            // asjutar timer
-            timer.Interval = tiempo;
-            timer.Tick += Timer_Tick;
+            this.MouseClick += FormLinea_MouseClick;*/
         }
-        private void Timer_Tick(object sender, EventArgs e)
+        public void SetVuelos(FlightPlan v1, FlightPlan v2, int ds, int tc)
+        {
+            //listaVuelos.Add(v1);
+            ListaVuelos.AddFlightPlan(v1);
+            ListaVuelos.AddFlightPlan(v2);
+            //listaVuelos.Add(v2);
+            this.distSeguridad = ds;
+            this.tCiclo = tc;
+            /*inicioa = v1.GetInitialPosition();
+            currenta = v1.GetCurrentPosition();
+            finala = v1.GetFinalPosition();
+            iniciob = v2.GetInitialPosition();
+            currentb = v2.GetCurrentPosition();
+            finalb = v2.GetFinalPosition();*/
+        }
+        /*private void Timer_Tick(object sender, EventArgs e)
         {
             double tiempo = timer.Interval / 1000.0;
-            foreach (FlightPlan vueloX in listaVuelos)
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
             {
-                vueloX.Mover(tiempo);
+                ListaVuelos.GetFlightPlan(i).Mover(tiempo);
             }
 
             this.Invalidate();
-        }
+        }*/
 
 
         //INFORMACION AL CLICKAR
-        private void FormLinea_MouseClick(object sender, MouseEventArgs e)
+        /*private void FormLinea_MouseClick(object sender, MouseEventArgs e)
         {
+                for (int i = 0; i < ListaVuelos.GetNum(); i++)
+                {
+                    Position actual = ListaVuelos.GetFlightPlan(i).GetCurrentPosition();
+                    Position inicio = ListaVuelos.GetFlightPlan(i).GetInitialPosition();
+                    Position destino = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
+
+                    double dx = e.X - actual.GetX();
+                    double dy = e.Y - actual.GetY();
+                    double distanciaAlClic = Math.Sqrt((dx * dx) + (dy * dy));
+
+                    if (distanciaAlClic < (radio + 5))
+                    {
+                        timer1.Stop();
+                        string estadoVuelo = Convert.ToString(ListaVuelos.GetFlightPlan(i).HasArrived());
+                        MessageBox.Show("Detalles del vuelo:\r\nID: " + ListaVuelos.GetFlightPlan(i).GetID() + "\r\nVelocidad: "
+                            + ListaVuelos.GetFlightPlan(i).GetVelocidad() + "km/h\r\nPosición Actual: [" + actual.GetX() + "," + actual.GetY()
+                            + "]\r\nOrigen: [" + inicio.GetX() + "," + inicio.GetY() + "]\r\nDestino: [" + destino.GetX()  + "," + destino.GetY()
+                            + "]\r\nEstado: " + estadoVuelo + "\r\nDistancia al destino: " + actual.Distancia(destino));
+                    }
+                }
             foreach (FlightPlan vueloX in listaVuelos)
             {
                 Position actual = vueloX.GetCurrentPosition();
@@ -84,37 +114,67 @@ namespace Interfaz
                     break;
                 }
             }
-        }
+        }*/
 
 
         // botones - iniciar simulación
         private void button1_Click(object sender, EventArgs e)
         {
-            timer.Start();
+            timer1.Interval = 1000;
+            timer1.Start();
         }
 
         // 1 ciclo
         private void button2_Click(object sender, EventArgs e)
         {
-            timer.Stop();
-            foreach (FlightPlan v in listaVuelos)
+            timer1.Stop();
+
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                ListaVuelos.GetFlightPlan(i).Mover(tCiclo);
+            }
+            /*foreach (FlightPlan v in listaVuelos)
             {
                 v.Mover(0.5);
-            }
-            this.Invalidate();
+            }*/
+            panel1.Invalidate();
         }
 
         // para papu
         private void button3_Click(object sender, EventArgs e)
         {
-            timer.Stop();
-
+            timer1.Stop();
         }
 
 
         //Arte
-        private void FormLinea_Paint(object sender, PaintEventArgs e)
+        /*private void FormLinea_Paint(object sender, PaintEventArgs e)
         {
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                Position inicio = ListaVuelos.GetFlightPlan(i).GetInitialPosition();
+                Position fin = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
+                Position actual = ListaVuelos.GetFlightPlan(i).GetCurrentPosition();
+
+                //Línea
+                using (Pen lapiz = new Pen(Color.Black, 2))
+                {
+                    e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)fin.GetX(), (int)fin.GetY());
+                }
+
+                //Círculo
+                using (Pen lapizSeguro = new Pen(Color.FromArgb(100, Color.Orange), 1))
+                {
+                    e.Graphics.DrawEllipse(lapizSeguro, (int)actual.GetX() - distSeguridad, (int)actual.GetY() - distSeguridad, distSeguridad * 2, distSeguridad * 2);
+                }
+
+                // Avión
+                string iconoAvion = "\u2708";
+                using (Font fuenteAvion = new Font("Arial", 14, FontStyle.Bold))
+                {
+                    e.Graphics.DrawString(iconoAvion, fuenteAvion, Brushes.Black, (float)actual.GetX() - 11, (float)actual.GetY() - 11);
+                }
+            }
             foreach (FlightPlan vueloActual in listaVuelos)
             {
                 Position inicio = vueloActual.GetInitialPosition();
@@ -138,6 +198,120 @@ namespace Interfaz
                 using (Font fuenteAvion = new Font("Arial", 14, FontStyle.Bold))
                 {
                     e.Graphics.DrawString(iconoAvion, fuenteAvion, Brushes.Black, (float)actual.GetX() - 11, (float)actual.GetY() - 11);
+                }
+            }
+        }*/
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            segundos++;
+            //double tiempo = timer1.Interval / 1000.0;
+            bool[] llegadas = new bool[ListaVuelos.GetNum()];
+            llegadas[0] = ListaVuelos.GetFlightPlan(0).HasArrived();
+            llegadas[1] = ListaVuelos.GetFlightPlan(1).HasArrived();
+
+            if ((llegadas[0] == false) || (llegadas[1] == false)) {
+                for (int i = 0; i < ListaVuelos.GetNum(); i++)
+                {
+                    if (ListaVuelos.GetFlightPlan(i).HasArrived() != true)
+                    { 
+                        ListaVuelos.GetFlightPlan(i).Mover(tCiclo);
+                    }
+                }
+                panel1.Invalidate();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                
+                Position inicio = ListaVuelos.GetFlightPlan(i).GetInitialPosition();
+                Position fin = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
+                Position actual = ListaVuelos.GetFlightPlan(i).GetCurrentPosition();
+                
+                
+                //Línea
+                using (Pen lapiz = new Pen(Color.Black, 2))
+                {
+                    e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)actual.GetX(), (int)actual.GetY());
+                }
+
+                //Círculo
+                FlightPlanList distancias = new FlightPlanList();
+                for (int j = 0; j < ListaVuelos.GetNum(); j++)
+                {
+                    if (ListaVuelos.GetFlightPlan(j) != ListaVuelos.GetFlightPlan(i))
+                    {
+                        distancias.AddFlightPlan(ListaVuelos.GetFlightPlan(j));
+                    }
+                }
+                for (int k = 0; k < distancias.GetNum(); k++)
+                {
+                    if (ListaVuelos.GetFlightPlan(i).Distancia(distancias.GetFlightPlan(k)) > (distSeguridad*2))
+                    {
+                        Pen lapizSeguro = new Pen(Color.FromArgb(100, Color.Orange), 1);
+                        e.Graphics.DrawEllipse(lapizSeguro, (int)actual.GetX() - distSeguridad, (int)actual.GetY() - distSeguridad, distSeguridad * 2, distSeguridad * 2);
+                        lapizSeguro.Dispose();
+                    }
+                    else
+                    {
+                        SolidBrush pintarcirculo = new SolidBrush(Color.Red);
+                        e.Graphics.FillEllipse(pintarcirculo, (float)actual.GetX()-distSeguridad, (float)actual.GetY()-distSeguridad,distSeguridad*2,distSeguridad*2);
+                        pintarcirculo.Dispose();
+                    }
+                }
+                
+                
+                // Avión
+                string iconoAvion = "\u2708";
+                using (Font fuenteAvion = new Font("Arial", 14, FontStyle.Bold))
+                {
+                    e.Graphics.DrawString(iconoAvion, fuenteAvion, Brushes.Black, (float)actual.GetX() - 11, (float)actual.GetY() - 11);
+                }
+            }
+        }
+
+        private void FormLinea_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                Position inicio = ListaVuelos.GetFlightPlan(i).GetInitialPosition();
+                Position fin = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
+                Position actual = inicio;
+
+                // Avión
+                panel1.Invalidate();
+            }
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                Position actual = ListaVuelos.GetFlightPlan(i).GetCurrentPosition();
+                Position inicio = ListaVuelos.GetFlightPlan(i).GetInitialPosition();
+                Position destino = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
+
+                double dx = e.X - actual.GetX();
+                double dy = e.Y - actual.GetY();
+                double distanciaAlClic = Math.Sqrt((dx * dx) + (dy * dy));
+
+                if (distanciaAlClic < (radio + 5))
+                {
+                    timer1.Stop();
+                    string estadoVuelo = Convert.ToString(ListaVuelos.GetFlightPlan(i).HasArrived());
+                    MessageBox.Show("Detalles del vuelo:\r\nID: " + ListaVuelos.GetFlightPlan(i).GetID() + "\r\nVelocidad: "
+                        + ListaVuelos.GetFlightPlan(i).GetVelocidad() + "km/h\r\nPosición Actual: [" + actual.GetX() + "," + actual.GetY()
+                        + "]\r\nOrigen: [" + inicio.GetX() + "," + inicio.GetY() + "]\r\nDestino: [" + destino.GetX() + "," + destino.GetY()
+                        + "]\r\nEstado: " + estadoVuelo + "\r\nDistancia al destino: " + actual.Distancia(destino));
                 }
             }
         }

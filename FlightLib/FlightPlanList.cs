@@ -25,6 +25,11 @@ namespace FlightLib
             }
 
         }
+       
+        public int GetNum()
+        {
+            return number;
+        }
 
         public FlightPlan GetFlightPlan(int i)
         {

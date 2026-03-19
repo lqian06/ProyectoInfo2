@@ -75,6 +75,7 @@ namespace Interfaz
   
         }
 
+        //¿¿Qué botón es este??
         private void ClickBotón2(object sender, EventArgs e)
         {
             this.Close();
@@ -92,6 +93,11 @@ namespace Interfaz
             if (string.IsNullOrEmpty(TextTiempoCiclo.Text)) return 0;
             try { return Convert.ToInt32(TextTiempoCiclo.Text); }
             catch { return 0; }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

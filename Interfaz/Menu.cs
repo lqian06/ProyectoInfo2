@@ -49,6 +49,12 @@ namespace Interfaz
         //arte
         private void botón4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        //¿¿Esto qué hace??
+        private void Menu_Load(object sender, EventArgs e) { }
+        private void tRESToolStripMenuItem_Click(object sender, EventArgs e) {
             FlightPlan v1 = planes.GetFlightPlan(0);
             FlightPlan v2 = planes.GetFlightPlan(1);
 
@@ -58,12 +64,10 @@ namespace Interfaz
                 return;
             }
 
-            FormLinea ventana = new FormLinea(v1, v2, distanciaSeguridad, tiempoCiclo);
+            FormLinea ventana = new FormLinea();
+            ventana.SetVuelos(v1, v2, distanciaSeguridad, tiempoCiclo);
             ventana.Show();
         }
-
-        private void Menu_Load(object sender, EventArgs e) { }
-        private void tRESToolStripMenuItem_Click(object sender, EventArgs e) { }
         private void menúToolStripMenuItem_Click(object sender, EventArgs e) { }
     }
 }
