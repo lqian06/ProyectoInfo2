@@ -36,9 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnInfoVuelos = new System.Windows.Forms.Button();
             this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
-            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -79,7 +78,6 @@
             // 
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1325, 366);
             this.panel1.Size = new System.Drawing.Size(1325, 402);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -107,25 +105,24 @@
             this.GridDatosVuelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellClick);
             this.GridDatosVuelos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellContentClick);
             // 
-            // button4
+            // button5
             // 
-            this.button4.Location = new System.Drawing.Point(1241, 475);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 44);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Reiniciar simulación";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button5.Location = new System.Drawing.Point(1241, 475);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(96, 44);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Reiniciar simulación";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 538);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.GridDatosVuelos);
             this.Controls.Add(this.BtnInfoVuelos);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -147,6 +144,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnInfoVuelos;
         private System.Windows.Forms.DataGridView GridDatosVuelos;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
