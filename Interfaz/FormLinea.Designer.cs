@@ -107,13 +107,13 @@
             // 
             // button5
             // 
-            this.button4.Location = new System.Drawing.Point(1228, 449);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 70);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "reiniciar simulación";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.button5.Location = new System.Drawing.Point(1228, 449);
+            this.button5.Name = "button4";
+            this.button5.Size = new System.Drawing.Size(109, 70);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "reiniciar simulación";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // FormLinea
             // 
