@@ -161,6 +161,22 @@ namespace FlightLib
             return d;
         }
 
- 
+        public double DistanciaMínima(FlightPlan b)
+        {
+            FlightPlanList lista = new FlightPlanList();
+            lista.AddFlightPlan(this);
+            lista.AddFlightPlan(b);
+            Position[] pos = new Position[2];
+            Position amin, bmin;
+            double xmin = -(this.GetInitialPosition().GetY() - this.GetInitialPosition().GetY()) / (((this.GetFinalPosition().GetY() - this.GetInitialPosition().GetY()) / (this.GetFinalPosition().GetX() - this.GetInitialPosition().GetX())) - ((b.GetFinalPosition().GetY() - b.GetInitialPosition().GetY()) / (b.GetFinalPosition().GetX() - b.GetInitialPosition().GetX())));
+            for (int i = 0; i < lista.GetNum(); i++)
+            {
+                double ymin = ((lista.GetFlightPlan(i).GetFinalPosition().GetY() - lista.GetFlightPlan(i).GetInitialPosition().GetY()) / (lista.GetFlightPlan(i).GetFinalPosition().GetX() - lista.GetFlightPlan(i).GetInitialPosition().GetX())) * xmin + lista.GetFlightPlan(i).GetInitialPosition().GetY();
+                pos[i] = new Position(xmin, ymin);
+            }
+            return pos[0].Distancia(pos[1]);
+        }
+
+
     }
 }
