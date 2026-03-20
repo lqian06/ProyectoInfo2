@@ -268,8 +268,8 @@ namespace Interfaz
                         pintarcirculo.Dispose();
                     }
                 }
-                
-                
+
+
                 // Avión
                 string iconoAvion = "\u2708";
                 using (Font fuenteAvion = new Font("Arial", 14, FontStyle.Bold))
@@ -314,6 +314,23 @@ namespace Interfaz
                         + "]\r\nEstado: " + estadoVuelo + "\r\nDistancia al destino: " + actual.Distancia(destino));
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            segundos = 0;
+
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                FlightPlan vuelo = ListaVuelos.GetFlightPlan(i);
+                Position inicio = vuelo.GetInitialPosition();
+
+                vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
+            }
+            panel1.Invalidate();
+
+            MessageBox.Show("Simulación reiniciada.");
         }
     }
 }
