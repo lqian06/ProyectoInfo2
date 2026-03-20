@@ -287,6 +287,10 @@ namespace Interfaz
                 panel1.Invalidate();
 
             }
+            else
+            {
+                timer1.Stop();
+            }
 
             if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
             {
@@ -294,10 +298,7 @@ namespace Interfaz
                 GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX()+ "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
             }
 
-            else
-            {
-                timer1.Stop();
-            }
+            
 
           
 
@@ -363,7 +364,24 @@ namespace Interfaz
                 Position fin = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
                 Position actual = inicio;
 
-                // Avión
+                FlightPlanList noPlan = new FlightPlanList();
+
+                for (int j = 0; j < ListaVuelos.GetNum(); j++)
+                {
+                    if (ListaVuelos.GetFlightPlan(i) != ListaVuelos.GetFlightPlan(j))
+                    {
+                        noPlan.AddFlightPlan(ListaVuelos.GetFlightPlan(j));
+                    }
+                }
+
+                for (int k = 0; k < noPlan.GetNum(); k++)
+                {
+                    if (ListaVuelos.GetFlightPlan(i).DistanciaMínima(noPlan.GetFlightPlan(k)) <= distSeguridad)
+                    {
+                        MessageBox.Show("El vuelo " + ListaVuelos.GetFlightPlan(i).GetID() + " tendrá conflicto con el vuelo " + noPlan.GetFlightPlan(k).GetID() + ".");
+                    }
+                }
+
                 panel1.Invalidate();
             }
         
