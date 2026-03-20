@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace Interfaz
 {
     public partial class FormLinea : Form
@@ -54,7 +55,7 @@ namespace Interfaz
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             timer1.Stop();
             segundos = 0;

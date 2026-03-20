@@ -14,13 +14,6 @@ namespace Interfaz
 {
     public partial class MenuAñadirPlan : Form
     {
-        string ida, idb;
-        double velocidada, velocidadb;
-        int xia, xib;
-        int yia, yib;
-        int xfa, xfb;
-        int yfa, yfb;
-
         FlightPlan plan_a;
         FlightPlan plan_b;
 

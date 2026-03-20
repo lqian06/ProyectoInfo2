@@ -107,13 +107,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1241, 475);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 44);
+            this.button5.Location = new System.Drawing.Point(1228, 449);
+            this.button5.Name = "button4";
+            this.button5.Size = new System.Drawing.Size(109, 70);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Reiniciar simulación";
+            this.button5.Text = "reiniciar simulación";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button4_Click);
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormLinea
             // 
@@ -122,7 +122,6 @@
             this.ClientSize = new System.Drawing.Size(1349, 538);
             this.Controls.Add(this.GridDatosVuelos);
             this.Controls.Add(this.BtnInfoVuelos);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
