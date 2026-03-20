@@ -70,6 +70,22 @@ namespace Interfaz
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            segundos = 0;
+
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                FlightPlan vuelo = ListaVuelos.GetFlightPlan(i);
+                Position inicio = vuelo.GetInitialPosition();
+
+                vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
+
+            }
+            panel1.Invalidate();
+        }
+
 
 
 
