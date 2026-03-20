@@ -86,7 +86,32 @@ namespace Interfaz
             panel1.Invalidate();
         }
 
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            timer1.Stop();
 
+            segundos = 0;
+
+
+
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+
+            {
+
+                FlightPlan vuelo = ListaVuelos.GetFlightPlan(i);
+
+                Position inicio = vuelo.GetInitialPosition();
+
+
+
+                vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
+
+
+
+            }
+
+            panel1.Invalidate();
+        }
 
 
         /*private void Timer_Tick(object sender, EventArgs e)
