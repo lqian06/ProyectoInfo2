@@ -23,6 +23,17 @@ namespace Interfaz
 
         FlightPlan plan_a;
         FlightPlan plan_b;
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         FlightPlanList lista = new FlightPlanList();
 
         public MenuAñadirPlan()

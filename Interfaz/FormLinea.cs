@@ -1,13 +1,15 @@
-﻿using System;
+﻿using FlightLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FlightLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interfaz
 {
@@ -19,10 +21,17 @@ namespace Interfaz
         int distSeguridad;
         int tCiclo;
         int segundos;
+        string idA, idB;
+        Position inicioA, inicioB, currentA, currentB, finalA, finalB, currentA1, currentB1;
+        double velocityA, velocidadB;
+
         //Position inicioa, iniciob, currenta, currentb, finala, finalb;
         //Timer timer = new Timer();
 
-        
+
+
+
+
 
         public FormLinea()
         {
@@ -41,13 +50,29 @@ namespace Interfaz
             //listaVuelos.Add(v2);
             this.distSeguridad = ds;
             this.tCiclo = tc;
-            /*inicioa = v1.GetInitialPosition();
-            currenta = v1.GetCurrentPosition();
-            finala = v1.GetFinalPosition();
-            iniciob = v2.GetInitialPosition();
-            currentb = v2.GetCurrentPosition();
-            finalb = v2.GetFinalPosition();*/
+
+            idA = v1.GetID();
+            inicioA = v1.GetInitialPosition();
+            currentA = v1.GetCurrentPosition();
+            finalA = v1.GetFinalPosition();
+            velocityA= v1.GetVelocidad();
+
+            idB = v2.GetID();
+            inicioB = v2.GetInitialPosition();
+            currentB = v2.GetCurrentPosition();
+            finalB = v2.GetFinalPosition();
+            velocidadB= v2.GetVelocidad();
         }
+
+        private void GridDatosVuelos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("La distancia entre los vuelos es: " + ListaVuelos.GetFlightPlan(0).Distancia(ListaVuelos.GetFlightPlan(1)), "metros.");
+
+        }
+
+
+
+
         /*private void Timer_Tick(object sender, EventArgs e)
         {
             double tiempo = timer.Interval / 1000.0;
@@ -219,11 +244,21 @@ namespace Interfaz
                     }
                 }
                 panel1.Invalidate();
+
             }
+
+            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
+            {
+                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
+                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX()+ "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
+            }
+
             else
             {
                 timer1.Stop();
             }
+
+          
 
         }
 
@@ -290,7 +325,15 @@ namespace Interfaz
                 // Avión
                 panel1.Invalidate();
             }
+        
+
+
+
+
+
         }
+
+        
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -316,21 +359,51 @@ namespace Interfaz
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void GridDatosVuelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            timer1.Stop();
-            segundos = 0;
 
-            for (int i = 0; i < ListaVuelos.GetNum(); i++)
-            {
-                FlightPlan vuelo = ListaVuelos.GetFlightPlan(i);
-                Position inicio = vuelo.GetInitialPosition();
+        }
 
-                vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
-            }
-            panel1.Invalidate();
+        private void BtnInfoVuelos_Click(object sender, EventArgs e)
+        {
+            //Para el grid
+            GridDatosVuelos.ColumnCount = 6;        //El número de fila y columna hacemos una función para que cuente los datos y que vaya creciendo a medida que se añaden vuelos, pero por ahora lo dejamos así
+            GridDatosVuelos.RowCount = 10;
+            GridDatosVuelos.ColumnHeadersVisible = false;
+            GridDatosVuelos.RowHeadersVisible = false;
+            GridDatosVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            MessageBox.Show("Simulación reiniciada.");
+            //Para el grid, poner de forma más eficiente las filas.
+
+            //for (int i = 0; i < 10) ; //Version 0 solo, con 14 datos en total, luego le ponemos algo que lo cuente aurtomácticamente
+            //{
+            //    CCoche coche = listaCoches.GetCoche(i);
+            //cocheGrid[0,i].Value = coche.GetMarca();
+            //    cochesGrid.Rows[i].Cells[0].Value = coche.GetMarca();
+            //    cochesGrid[1, int].Value = coche.GetModelo();
+            //    cochesGrid[2, i].Value = coche.GetPrecio
+
+            GridDatosVuelos[1, 0].Value = "ID";
+            GridDatosVuelos[2, 0].Value = "InitialPosition";
+            GridDatosVuelos[3, 0].Value = "CurrentPosition";
+            GridDatosVuelos[4, 0].Value = "FinalPosition";
+            GridDatosVuelos[5, 0].Value = "Velocidad";
+
+            GridDatosVuelos[0, 1].Value = "Vuelo A";
+            GridDatosVuelos[0, 2].Value = "Vuelo B";
+
+            GridDatosVuelos[1, 1].Value = idA;
+            GridDatosVuelos[2, 1].Value = inicioA.GetX() + "," + inicioA.GetY();
+            GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX()+ "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
+            GridDatosVuelos[4, 1].Value = finalA.GetX() + "," + finalA.GetY();
+            GridDatosVuelos[5, 1].Value = velocityA;
+
+            GridDatosVuelos[1, 2].Value = idB;
+            GridDatosVuelos[2, 2].Value = inicioB.GetX() + "," + inicioB.GetY();
+            GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
+            GridDatosVuelos[4, 2].Value = finalB.GetX() + "," + finalB.GetY();
+            GridDatosVuelos[5, 2].Value = velocidadB;
         }
     }
+    
 }
