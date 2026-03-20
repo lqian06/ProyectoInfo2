@@ -34,6 +34,23 @@ namespace Interfaz
 
         }
 
+        private void btnAutorrellenar_Click(object sender, EventArgs e)
+        {
+            textBox1.Text="PlanA";
+            textBox2.Text="100";
+            textBox3.Text="50";
+            textBox4.Text="50";
+            textBox5.Text="500";
+            textBox6.Text="50";
+
+            textBox7.Text="PlanB";
+            textBox8.Text="100";
+            textBox9.Text="500";
+            textBox10.Text="50";
+            textBox11.Text="50";
+            textBox12.Text="50";
+        }
+
         FlightPlanList lista = new FlightPlanList();
 
         public MenuAñadirPlan()

@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnAutorrellenar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -239,11 +240,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnAutorrellenar
+            // 
+            this.btnAutorrellenar.Location = new System.Drawing.Point(340, 369);
+            this.btnAutorrellenar.Name = "btnAutorrellenar";
+            this.btnAutorrellenar.Size = new System.Drawing.Size(112, 23);
+            this.btnAutorrellenar.TabIndex = 23;
+            this.btnAutorrellenar.Text = "Autorrellenar";
+            this.btnAutorrellenar.UseVisualStyleBackColor = true;
+            this.btnAutorrellenar.Click += new System.EventHandler(this.btnAutorrellenar_Click);
+            // 
             // MenuAñadirPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAutorrellenar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAutorrellenar;
     }
 }

@@ -99,5 +99,12 @@ namespace Interfaz
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TextDistanciaSeguridad.Text = "10";
+            TextTiempoCiclo.Text = "10";
+
+        }
     }
 }

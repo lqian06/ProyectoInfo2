@@ -67,6 +67,11 @@ namespace Interfaz
                 vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
 
             }
+            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
+            {
+                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
+                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
+            }
             panel1.Invalidate();
         }
 
@@ -87,6 +92,13 @@ namespace Interfaz
                 ListaVuelos.GetFlightPlan(i).Mover(tCiclo);
             }
             panel1.Invalidate();
+
+            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
+            {
+                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
+                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
+            }
+
         }
 
         // para papu
@@ -140,7 +152,7 @@ namespace Interfaz
                 //Línea
                 using (Pen lapiz = new Pen(Color.Black, 2))
                 {
-                    e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)actual.GetX(), (int)actual.GetY());
+                    e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)fin.GetX(), (int)fin.GetY());
                 }
 
                 //Círculo
