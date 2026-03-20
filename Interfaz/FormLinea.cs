@@ -319,8 +319,8 @@ namespace Interfaz
                         pintarcirculo.Dispose();
                     }
                 }
-                
-                
+
+
                 // Avión
                 string iconoAvion = "\u2708";
                 using (Font fuenteAvion = new Font("Arial", 14, FontStyle.Bold))
@@ -420,9 +420,6 @@ namespace Interfaz
             GridDatosVuelos[4, 2].Value = finalB.GetX() + "," + finalB.GetY();
             GridDatosVuelos[5, 2].Value = velocidadB;
         }
-
-
-
     }
     
 }

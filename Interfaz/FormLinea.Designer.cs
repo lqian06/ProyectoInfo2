@@ -38,6 +38,7 @@
             this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -79,6 +80,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1325, 366);
+            this.panel1.Size = new System.Drawing.Size(1325, 402);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
@@ -123,6 +125,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.GridDatosVuelos);
             this.Controls.Add(this.BtnInfoVuelos);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
