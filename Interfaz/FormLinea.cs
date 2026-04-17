@@ -251,9 +251,29 @@ namespace Interfaz
                 formPregunta.ShowDialog();
             }
             panel1.Invalidate();
+
+            //arreglar conflicto
+            FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
+            FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
+
+            double sugerencia;
+            if (v1.SugerirVelocidadParaEvitarColision(v2, distSeguridad, out sugerencia))
+            {
+                CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta(sugerencia);
+
+                if (formPregunta.ShowDialog() == DialogResult.OK)
+                {
+                    v1.SetVelocidad(sugerencia);
+
+                    if (GridDatosVuelos.ColumnCount > 0)
+                        GridDatosVuelos[5, 1].Value = v1.GetVelocidad();
+
+                    MessageBox.Show("Velocidad modificada automáticamente para evitar colisión.");
+                }
+            }
         }
 
-
+  
 
         private void GridDatosVuelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
