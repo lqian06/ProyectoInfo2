@@ -202,6 +202,27 @@ namespace FlightLib
             }
         }
 
+        public bool SugerirVelocidadParaEvitarColision(FlightPlan b, double distanciaSeguridad, out double vSugerida)
+        {
+            double vOriginal = this.velocidad;
+            double vPrueba = this.velocidad * 0.9;
+            vSugerida = -1;
+
+            while (vPrueba > 10)
+            {
+                this.velocidad = vPrueba;
+                if (this.DistanciaMinima(b) > distanciaSeguridad)
+                {
+                    vSugerida = vPrueba;
+                    this.velocidad = vOriginal;
+                    return true;
+                }
+                vPrueba *= 0.95;
+            }
+            this.velocidad = vOriginal;
+            return false;
+        }
+
 
     }
 }
