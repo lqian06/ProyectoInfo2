@@ -365,5 +365,6 @@ namespace Interfaz
             {
                 MessageBox.Show("Por favor, ingrese un número válido para la velocidad.");
             }
+        }
     }
 }
