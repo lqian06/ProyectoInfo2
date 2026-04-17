@@ -29,53 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnParar = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnInfoVuelos = new System.Windows.Forms.Button();
-            this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.CambiarVelBtn = new System.Windows.Forms.Button();
             this.NewVelFP1textBox = new System.Windows.Forms.TextBox();
             this.NewVelFP2textBox = new System.Windows.Forms.TextBox();
             this.NewVelFP1label = new System.Windows.Forms.Label();
             this.NewVelFP2label = new System.Windows.Forms.Label();
-            this.RestartSimBtn = new System.Windows.Forms.Button();
             this.ChocaLabel = new System.Windows.Forms.Label();
+            this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.RestartSimBtn = new System.Windows.Forms.Button();
+            this.BtnInfoVuelos = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnParar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(651, 446);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 77);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Iniciar simulación";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(808, 449);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 77);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "+ 1 Ciclo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnParar
-            // 
-            this.btnParar.Location = new System.Drawing.Point(952, 449);
-            this.btnParar.Name = "btnParar";
-            this.btnParar.Size = new System.Drawing.Size(138, 77);
-            this.btnParar.TabIndex = 2;
-            this.btnParar.Text = "Detener simulación";
-            this.btnParar.UseVisualStyleBackColor = true;
-            this.btnParar.Click += new System.EventHandler(this.btnParar_Click);
             // 
             // timer1
             // 
@@ -83,34 +55,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.GridDatosVuelos);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1179, 402);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
-            // 
-            // BtnInfoVuelos
-            // 
-            this.BtnInfoVuelos.Location = new System.Drawing.Point(1105, 449);
-            this.BtnInfoVuelos.Name = "BtnInfoVuelos";
-            this.BtnInfoVuelos.Size = new System.Drawing.Size(117, 70);
-            this.BtnInfoVuelos.TabIndex = 4;
-            this.BtnInfoVuelos.Text = "Información de los vuelos";
-            this.BtnInfoVuelos.UseVisualStyleBackColor = true;
-            this.BtnInfoVuelos.Click += new System.EventHandler(this.BtnInfoVuelos_Click);
-            // 
-            // GridDatosVuelos
-            // 
-            this.GridDatosVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridDatosVuelos.Location = new System.Drawing.Point(12, 384);
-            this.GridDatosVuelos.Name = "GridDatosVuelos";
-            this.GridDatosVuelos.RowHeadersWidth = 51;
-            this.GridDatosVuelos.RowTemplate.Height = 24;
-            this.GridDatosVuelos.Size = new System.Drawing.Size(611, 142);
-            this.GridDatosVuelos.TabIndex = 5;
-            this.GridDatosVuelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellClick);
-            this.GridDatosVuelos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellContentClick);
             // 
             // button5
             // 
@@ -164,16 +115,6 @@
             this.NewVelFP2label.TabIndex = 0;
             this.NewVelFP2label.Text = "Nueva velocidad FP2:";
             // 
-            // RestartSimBtn
-            // 
-            this.RestartSimBtn.Location = new System.Drawing.Point(1229, 449);
-            this.RestartSimBtn.Name = "RestartSimBtn";
-            this.RestartSimBtn.Size = new System.Drawing.Size(97, 70);
-            this.RestartSimBtn.TabIndex = 9;
-            this.RestartSimBtn.Text = "Reiniciar Simulación";
-            this.RestartSimBtn.UseVisualStyleBackColor = true;
-            this.RestartSimBtn.Click += new System.EventHandler(this.RestartSimBtn_Click);
-            // 
             // ChocaLabel
             // 
             this.ChocaLabel.AutoSize = true;
@@ -183,27 +124,101 @@
             this.ChocaLabel.TabIndex = 10;
             this.ChocaLabel.Text = "Choca";
             // 
+            // GridDatosVuelos
+            // 
+            this.GridDatosVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridDatosVuelos.Location = new System.Drawing.Point(0, 260);
+            this.GridDatosVuelos.Name = "GridDatosVuelos";
+            this.GridDatosVuelos.RowHeadersWidth = 51;
+            this.GridDatosVuelos.RowTemplate.Height = 24;
+            this.GridDatosVuelos.Size = new System.Drawing.Size(611, 142);
+            this.GridDatosVuelos.TabIndex = 5;
+            this.GridDatosVuelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellClick);
+            this.GridDatosVuelos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellContentClick);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(566, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 75);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "▶︎";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(410, 435);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 75);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "◁";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // RestartSimBtn
+            // 
+            this.RestartSimBtn.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RestartSimBtn.Location = new System.Drawing.Point(878, 435);
+            this.RestartSimBtn.Name = "RestartSimBtn";
+            this.RestartSimBtn.Size = new System.Drawing.Size(150, 75);
+            this.RestartSimBtn.TabIndex = 16;
+            this.RestartSimBtn.Text = "⟳";
+            this.RestartSimBtn.UseVisualStyleBackColor = true;
+            // 
+            // BtnInfoVuelos
+            // 
+            this.BtnInfoVuelos.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInfoVuelos.Location = new System.Drawing.Point(13, 435);
+            this.BtnInfoVuelos.Name = "BtnInfoVuelos";
+            this.BtnInfoVuelos.Size = new System.Drawing.Size(150, 75);
+            this.BtnInfoVuelos.TabIndex = 15;
+            this.BtnInfoVuelos.Text = "ⓘ";
+            this.BtnInfoVuelos.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(722, 435);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 75);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "▷";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnParar
+            // 
+            this.btnParar.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParar.Location = new System.Drawing.Point(566, 435);
+            this.btnParar.Name = "btnParar";
+            this.btnParar.Size = new System.Drawing.Size(150, 75);
+            this.btnParar.TabIndex = 14;
+            this.btnParar.Text = "||";
+            this.btnParar.UseVisualStyleBackColor = true;
+            // 
             // FormLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 538);
-            this.Controls.Add(this.ChocaLabel);
+            this.ClientSize = new System.Drawing.Size(1349, 535);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.RestartSimBtn);
+            this.Controls.Add(this.BtnInfoVuelos);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnParar);
+            this.Controls.Add(this.ChocaLabel);
             this.Controls.Add(this.NewVelFP2label);
             this.Controls.Add(this.NewVelFP1label);
             this.Controls.Add(this.NewVelFP2textBox);
             this.Controls.Add(this.NewVelFP1textBox);
             this.Controls.Add(this.CambiarVelBtn);
-            this.Controls.Add(this.GridDatosVuelos);
-            this.Controls.Add(this.BtnInfoVuelos);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnParar);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "FormLinea";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.FormLinea_Load);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,21 +226,21 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnParar;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnInfoVuelos;
-        private System.Windows.Forms.DataGridView GridDatosVuelos;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button CambiarVelBtn;
         private System.Windows.Forms.TextBox NewVelFP1textBox;
         private System.Windows.Forms.TextBox NewVelFP2textBox;
         private System.Windows.Forms.Label NewVelFP1label;
         private System.Windows.Forms.Label NewVelFP2label;
-        private System.Windows.Forms.Button RestartSimBtn;
         private System.Windows.Forms.Label ChocaLabel;
+        private System.Windows.Forms.DataGridView GridDatosVuelos;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button RestartSimBtn;
+        private System.Windows.Forms.Button BtnInfoVuelos;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnParar;
     }
 }
