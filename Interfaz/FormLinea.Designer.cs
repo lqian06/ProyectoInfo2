@@ -43,6 +43,7 @@
             this.NewVelFP1label = new System.Windows.Forms.Label();
             this.NewVelFP2label = new System.Windows.Forms.Label();
             this.RestartSimBtn = new System.Windows.Forms.Button();
+            this.ChocaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,11 +174,21 @@
             this.RestartSimBtn.UseVisualStyleBackColor = true;
             this.RestartSimBtn.Click += new System.EventHandler(this.RestartSimBtn_Click);
             // 
+            // ChocaLabel
+            // 
+            this.ChocaLabel.AutoSize = true;
+            this.ChocaLabel.Location = new System.Drawing.Point(1242, 271);
+            this.ChocaLabel.Name = "ChocaLabel";
+            this.ChocaLabel.Size = new System.Drawing.Size(46, 16);
+            this.ChocaLabel.TabIndex = 10;
+            this.ChocaLabel.Text = "Choca";
+            // 
             // FormLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 538);
+            this.Controls.Add(this.ChocaLabel);
             this.Controls.Add(this.RestartSimBtn);
             this.Controls.Add(this.NewVelFP2label);
             this.Controls.Add(this.NewVelFP1label);
@@ -215,5 +226,6 @@
         private System.Windows.Forms.Label NewVelFP1label;
         private System.Windows.Forms.Label NewVelFP2label;
         private System.Windows.Forms.Button RestartSimBtn;
+        private System.Windows.Forms.Label ChocaLabel;
     }
 }

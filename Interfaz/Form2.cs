@@ -26,14 +26,14 @@ namespace Interfaz
             textBox3.Text="50";
             textBox4.Text="50";
             textBox5.Text="500";
-            textBox6.Text="50";
+            textBox6.Text="200";
 
             textBox7.Text="PlanB";
             textBox8.Text="100";
             textBox9.Text="500";
             textBox10.Text="50";
             textBox11.Text="50";
-            textBox12.Text="50";
+            textBox12.Text="200";
         }
 
         FlightPlanList lista = new FlightPlanList();

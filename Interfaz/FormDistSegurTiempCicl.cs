@@ -13,6 +13,8 @@ namespace Interfaz
     public partial class FormDistSegurTiempCicl : Form
     {
         //Iniciar el formulario
+        int tiempoCiclo;
+        double distanciaSeguridad;
         public FormDistSegurTiempCicl()
         {
             InitializeComponent();
@@ -32,6 +34,17 @@ namespace Interfaz
             if (string.IsNullOrEmpty(TextTiempoCiclo.Text)) return 0;
             try { return Convert.ToInt32(TextTiempoCiclo.Text); }
             catch { return 0; }
+        }
+
+        //Sets
+        public void SetDistancia(double distancia)
+        {
+            distanciaSeguridad = distancia;
+        }
+
+        public void SetTiempo(int tiempo)
+        {
+            tiempoCiclo = tiempo;
         }
 
 
@@ -91,6 +104,13 @@ namespace Interfaz
         {
             TextDistanciaSeguridad.Text = "10";
             TextTiempoCiclo.Text = "10";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
+            distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
+            Close();
         }
     }
 }

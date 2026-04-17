@@ -18,7 +18,7 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        //Añadir datos de vuelo
+        //Añadir datos de vuelo de los FlightPlans
         private void Botón2_Click(object sender, EventArgs e)
         {
             MenuAñadirPlan Form2 = new MenuAñadirPlan();
@@ -30,7 +30,7 @@ namespace Interfaz
             }
         }
 
-        //Distancias
+        //Distancias de seguridad y tiempo de ciclo
         private void uNOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDistSegurTiempCicl form3 = new FormDistSegurTiempCicl();
