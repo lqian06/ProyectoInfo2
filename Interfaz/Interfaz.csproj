@@ -52,6 +52,12 @@
     <Compile Include="CambiarVelocidadPregunta.Designer.cs">
       <DependentUpon>CambiarVelocidadPregunta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeVelocity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeVelocity.Designer.cs">
+      <DependentUpon>ChangeVelocity.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLinea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CambiarVelocidadPregunta.resx">
       <DependentUpon>CambiarVelocidadPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeVelocity.resx">
+      <DependentUpon>ChangeVelocity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>

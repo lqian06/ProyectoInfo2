@@ -38,10 +38,6 @@
             this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.CambiarVelBtn = new System.Windows.Forms.Button();
-            this.NewVelFP1textBox = new System.Windows.Forms.TextBox();
-            this.NewVelFP2textBox = new System.Windows.Forms.TextBox();
-            this.NewVelFP1label = new System.Windows.Forms.Label();
-            this.NewVelFP2label = new System.Windows.Forms.Label();
             this.RestartSimBtn = new System.Windows.Forms.Button();
             this.ChocaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
@@ -132,38 +128,6 @@
             this.CambiarVelBtn.UseVisualStyleBackColor = true;
             this.CambiarVelBtn.Click += new System.EventHandler(this.CambiarVelBtn_Click);
             // 
-            // NewVelFP1textBox
-            // 
-            this.NewVelFP1textBox.Location = new System.Drawing.Point(1217, 112);
-            this.NewVelFP1textBox.Name = "NewVelFP1textBox";
-            this.NewVelFP1textBox.Size = new System.Drawing.Size(100, 22);
-            this.NewVelFP1textBox.TabIndex = 7;
-            // 
-            // NewVelFP2textBox
-            // 
-            this.NewVelFP2textBox.Location = new System.Drawing.Point(1217, 173);
-            this.NewVelFP2textBox.Name = "NewVelFP2textBox";
-            this.NewVelFP2textBox.Size = new System.Drawing.Size(100, 22);
-            this.NewVelFP2textBox.TabIndex = 8;
-            // 
-            // NewVelFP1label
-            // 
-            this.NewVelFP1label.AutoSize = true;
-            this.NewVelFP1label.Location = new System.Drawing.Point(1197, 93);
-            this.NewVelFP1label.Name = "NewVelFP1label";
-            this.NewVelFP1label.Size = new System.Drawing.Size(140, 16);
-            this.NewVelFP1label.TabIndex = 0;
-            this.NewVelFP1label.Text = "Nueva velocidad FP1:";
-            // 
-            // NewVelFP2label
-            // 
-            this.NewVelFP2label.AutoSize = true;
-            this.NewVelFP2label.Location = new System.Drawing.Point(1197, 154);
-            this.NewVelFP2label.Name = "NewVelFP2label";
-            this.NewVelFP2label.Size = new System.Drawing.Size(140, 16);
-            this.NewVelFP2label.TabIndex = 0;
-            this.NewVelFP2label.Text = "Nueva velocidad FP2:";
-            // 
             // RestartSimBtn
             // 
             this.RestartSimBtn.Location = new System.Drawing.Point(1229, 449);
@@ -190,10 +154,6 @@
             this.ClientSize = new System.Drawing.Size(1349, 538);
             this.Controls.Add(this.ChocaLabel);
             this.Controls.Add(this.RestartSimBtn);
-            this.Controls.Add(this.NewVelFP2label);
-            this.Controls.Add(this.NewVelFP1label);
-            this.Controls.Add(this.NewVelFP2textBox);
-            this.Controls.Add(this.NewVelFP1textBox);
             this.Controls.Add(this.CambiarVelBtn);
             this.Controls.Add(this.GridDatosVuelos);
             this.Controls.Add(this.BtnInfoVuelos);
@@ -221,10 +181,6 @@
         private System.Windows.Forms.DataGridView GridDatosVuelos;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button CambiarVelBtn;
-        private System.Windows.Forms.TextBox NewVelFP1textBox;
-        private System.Windows.Forms.TextBox NewVelFP2textBox;
-        private System.Windows.Forms.Label NewVelFP1label;
-        private System.Windows.Forms.Label NewVelFP2label;
         private System.Windows.Forms.Button RestartSimBtn;
         private System.Windows.Forms.Label ChocaLabel;
     }
