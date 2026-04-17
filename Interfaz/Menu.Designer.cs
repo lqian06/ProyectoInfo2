@@ -36,6 +36,7 @@
             this.uNOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Botón2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tRESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnConflicto = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             // ButtonNico
             // 
             this.ButtonNico.BackColor = System.Drawing.Color.Red;
-            this.ButtonNico.Location = new System.Drawing.Point(236, 106);
+            this.ButtonNico.Location = new System.Drawing.Point(510, 142);
             this.ButtonNico.Name = "ButtonNico";
             this.ButtonNico.Size = new System.Drawing.Size(240, 107);
             this.ButtonNico.TabIndex = 3;
@@ -74,7 +75,7 @@
             this.menúToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,36 +86,48 @@
             this.Botón2,
             this.tRESToolStripMenuItem});
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
-            this.menúToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
+            this.menúToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.menúToolStripMenuItem.Text = "Menú";
             this.menúToolStripMenuItem.Click += new System.EventHandler(this.menúToolStripMenuItem_Click);
             // 
             // uNOToolStripMenuItem
             // 
             this.uNOToolStripMenuItem.Name = "uNOToolStripMenuItem";
-            this.uNOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.uNOToolStripMenuItem.Text = "UNO";
+            this.uNOToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.uNOToolStripMenuItem.Text = "Configuración Simulador";
             this.uNOToolStripMenuItem.Click += new System.EventHandler(this.uNOToolStripMenuItem_Click);
             // 
             // Botón2
             // 
             this.Botón2.Name = "Botón2";
-            this.Botón2.Size = new System.Drawing.Size(224, 26);
-            this.Botón2.Text = "DOSS";
+            this.Botón2.Size = new System.Drawing.Size(257, 26);
+            this.Botón2.Text = "Planes de vuelo";
             this.Botón2.Click += new System.EventHandler(this.Botón2_Click);
             // 
             // tRESToolStripMenuItem
             // 
             this.tRESToolStripMenuItem.Name = "tRESToolStripMenuItem";
-            this.tRESToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.tRESToolStripMenuItem.Text = "TRES";
+            this.tRESToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.tRESToolStripMenuItem.Text = "Simulador";
             this.tRESToolStripMenuItem.Click += new System.EventHandler(this.tRESToolStripMenuItem_Click);
+            // 
+            // BtnConflicto
+            // 
+            this.BtnConflicto.Font = new System.Drawing.Font("Comic Sans MS", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConflicto.Location = new System.Drawing.Point(122, 94);
+            this.BtnConflicto.Name = "BtnConflicto";
+            this.BtnConflicto.Size = new System.Drawing.Size(257, 178);
+            this.BtnConflicto.TabIndex = 5;
+            this.BtnConflicto.Text = "¿Conflicto?";
+            this.BtnConflicto.UseVisualStyleBackColor = true;
+            this.BtnConflicto.Click += new System.EventHandler(this.BtnConflicto_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnConflicto);
             this.Controls.Add(this.ButtonNico);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -138,6 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem uNOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Botón2;
         private System.Windows.Forms.ToolStripMenuItem tRESToolStripMenuItem;
+        private System.Windows.Forms.Button BtnConflicto;
     }
 }
 

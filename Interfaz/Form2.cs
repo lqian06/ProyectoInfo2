@@ -17,16 +17,8 @@ namespace Interfaz
         FlightPlan plan_a;
         FlightPlan plan_b;
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Botones interfaz
         private void btnAutorrellenar_Click(object sender, EventArgs e)
         {
             textBox1.Text="PlanA";
@@ -46,11 +38,15 @@ namespace Interfaz
 
         FlightPlanList lista = new FlightPlanList();
 
+
+        //Inicia el formulario
         public MenuAñadirPlan()
         {
             InitializeComponent();
         }
 
+
+        //Determina si hay una lista de planes de vuelo creada
         public int HayLista()
         {
             if (lista != null)
@@ -63,22 +59,24 @@ namespace Interfaz
             }
         }
 
+
+        //Gets
         public FlightPlanList GetLista()
         {
             return lista;
         }
-
 
         public FlightPlan GetPlan(int i)
         {
             return lista.GetFlightPlan(i);
         }
 
+
+        //Botón para guardar los planes de vuelo
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            {  
                 string ida = textBox1.Text;
                 int velocidada = Convert.ToInt32(textBox2.Text);
                 int xia = Convert.ToInt32(textBox3.Text);
@@ -93,7 +91,6 @@ namespace Interfaz
                 int xfb = Convert.ToInt32(textBox11.Text);
                 int yfb = Convert.ToInt32(textBox12.Text);
 
-                //CAMBIAR CUANDO TOQUE ENTREGA BUENA ************************************************************************************
                 this.plan_a = new FlightPlan(ida, xia, yia, xfa, yfa, velocidada);
                 this.plan_b = new FlightPlan(idb, xib, yib, xfb, yfb, velocidadb);
                 int añadida = lista.AddFlightPlan(plan_a);

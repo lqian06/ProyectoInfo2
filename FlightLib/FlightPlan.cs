@@ -115,7 +115,7 @@ namespace FlightLib
         public bool HasArrived()
         {
             bool resultado = false;
-            if (currentPosition == finalPosition)
+            if ((Math.Abs(currentPosition.GetX() - initialPosition.GetX()) >= Math.Abs(finalPosition.GetX() - initialPosition.GetX())) && (Math.Abs(currentPosition.GetY() - initialPosition.GetY()) >= Math.Abs(finalPosition.GetY() - initialPosition.GetY())))
             {
                 resultado = true;
             }
@@ -161,20 +161,45 @@ namespace FlightLib
             return d;
         }
 
-        public double DistanciaMínima(FlightPlan b)
+        public double DistanciaMinima(FlightPlan b)
         {
-            FlightPlanList lista = new FlightPlanList();
-            lista.AddFlightPlan(this);
-            lista.AddFlightPlan(b);
-            Position[] pos = new Position[2];
-            Position amin, bmin;
-            double xmin = -(this.GetInitialPosition().GetY() - this.GetInitialPosition().GetY()) / (((this.GetFinalPosition().GetY() - this.GetInitialPosition().GetY()) / (this.GetFinalPosition().GetX() - this.GetInitialPosition().GetX())) - ((b.GetFinalPosition().GetY() - b.GetInitialPosition().GetY()) / (b.GetFinalPosition().GetX() - b.GetInitialPosition().GetX())));
-            for (int i = 0; i < lista.GetNum(); i++)
+            double tiempoMinimo;
+            double distanciaMinima;
+
+            double velocidadA = velocidad / 60;
+            double velocidadB = b.GetVelocidad() / 60;
+
+            double hipotenusaA = Math.Sqrt((finalPosition.GetX() - initialPosition.GetX()) * (finalPosition.GetX() - initialPosition.GetX()) + (finalPosition.GetY() - initialPosition.GetY()) * (finalPosition.GetY() - initialPosition.GetY()));
+            double hipotenusaB = Math.Sqrt((b.GetFinalPosition().GetX() - b.GetInitialPosition().GetX()) * (b.GetFinalPosition().GetX() - b.GetInitialPosition().GetX()) + (b.GetFinalPosition().GetY() - b.GetInitialPosition().GetY()) * (b.GetFinalPosition().GetY() - b.GetInitialPosition().GetY()));
+
+            double cosenoA = (finalPosition.GetX() - initialPosition.GetX()) / hipotenusaA;
+            double senoA = (finalPosition.GetY() - initialPosition.GetY()) / hipotenusaA;
+            double cosenoB = (b.GetFinalPosition().GetX() - b.GetInitialPosition().GetX()) / hipotenusaB;
+            double senoB = (b.GetFinalPosition().GetY() - b.GetInitialPosition().GetY()) / hipotenusaB;
+
+            tiempoMinimo = -((initialPosition.GetX() - b.GetInitialPosition().GetX()) * (velocidadA * cosenoA - velocidadB * cosenoB) + (initialPosition.GetY() - b.GetInitialPosition().GetY()) * (velocidadA * senoA - velocidadB * senoB)) / ((velocidadA * cosenoA - velocidadB * cosenoB) * (velocidadA * cosenoA - velocidadB * cosenoB) + (velocidadA * senoA - velocidadB * senoB) * (velocidadA * senoA - velocidadB * senoB));
+
+            double posAX = initialPosition.GetX() + velocidadA * cosenoA * tiempoMinimo;
+            double posAY = initialPosition.GetY() + velocidadA * senoA * tiempoMinimo;
+            double posBX = b.GetInitialPosition().GetX() + velocidadB * cosenoB * tiempoMinimo;
+            double posBY = b.GetInitialPosition().GetY() + velocidadB * senoB * tiempoMinimo;
+
+            distanciaMinima = Math.Sqrt((posAX - posBX) * (posAX - posBX) + (posAY - posBY) * (posAY - posBY));
+
+            return distanciaMinima;
+
+        }
+
+        public bool HabraConflicto(FlightPlan b, int distSeguridad)
+        {
+            if (this.DistanciaMinima(b) <= distSeguridad)
             {
-                double ymin = ((lista.GetFlightPlan(i).GetFinalPosition().GetY() - lista.GetFlightPlan(i).GetInitialPosition().GetY()) / (lista.GetFlightPlan(i).GetFinalPosition().GetX() - lista.GetFlightPlan(i).GetInitialPosition().GetX())) * xmin + lista.GetFlightPlan(i).GetInitialPosition().GetY();
-                pos[i] = new Position(xmin, ymin);
+                return true;
             }
-            return pos[0].Distancia(pos[1]);
+            else
+            {
+                return false;
+            }
         }
 
 

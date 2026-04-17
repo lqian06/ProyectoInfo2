@@ -33,7 +33,7 @@ namespace Interfaz
         //Distancias
         private void uNOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3DistSegurTiempCicl form3 = new Form3DistSegurTiempCicl();
+            FormDistSegurTiempCicl form3 = new FormDistSegurTiempCicl();
 
             form3.ShowDialog();
 
@@ -69,5 +69,23 @@ namespace Interfaz
             ventana.Show();
         }
         private void menúToolStripMenuItem_Click(object sender, EventArgs e) { }
+
+        private void BtnConflicto_Click(object sender, EventArgs e)
+        {
+            if (planes.GetNum() >= 2)
+            {
+                if (planes.GetFlightPlan(0).HabraConflicto(planes.GetFlightPlan(1), distanciaSeguridad))
+                {
+                    MessageBox.Show("¡Alerta! Habrá un conflicto entre los vuelos.");
+                }
+                else
+                {
+                    MessageBox.Show("No habrá ningún conflicto entre los vuelos.");
+                }
+            }
+            else {
+                    MessageBox.Show("Error: No hay datos de vuelos.");
+            }
+        }
     }
 }

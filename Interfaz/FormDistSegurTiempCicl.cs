@@ -10,77 +10,16 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class Form3DistSegurTiempCicl : Form
+    public partial class FormDistSegurTiempCicl : Form
     {
-        public Form3DistSegurTiempCicl()
+        //Iniciar el formulario
+        public FormDistSegurTiempCicl()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-
-        private bool EstructuraCorrecta = false;
-        private void TextTiempoCiclo_TextChanged(object sender, EventArgs e)
-        {
-            if (EstructuraCorrecta)
-            {
-                return;
-            }
-            int res;
-            try
-            {
-  
-                res =Convert.ToInt32(TextTiempoCiclo.Text);
-   
-
-                return;
-            }
-            catch (FormatException)
-            {
-                EstructuraCorrecta = true;
-                MessageBox.Show ("Escriba un número entero en el tiempo de ciclo");
-                TextTiempoCiclo.Text="";
-                EstructuraCorrecta = false;
-                return;       
-            }
-
-        }
-
-        private void TextDistanciaSeguridad_TextChanged(object sender, EventArgs e)
-        {
-
-            if (EstructuraCorrecta)
-            {
-                return;
-            }
-            int res;
-            try
-            {
-                res = Convert.ToInt32(TextDistanciaSeguridad.Text);
-                return;
-            }
-            catch (FormatException)
-            {
-                EstructuraCorrecta = true;
-                MessageBox.Show("Escriba un número entero para la distancia de seguridad");
-                TextDistanciaSeguridad.Text = "";
-                EstructuraCorrecta = false;
-                return;
-            }
-
-  
-        }
-
-        //¿¿Qué botón es este??
-        private void ClickBotón2(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        //Gets
         public int GetDistancia()
         {
             if (string.IsNullOrEmpty(TextDistanciaSeguridad.Text)) return 0;
@@ -95,16 +34,63 @@ namespace Interfaz
             catch { return 0; }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        //Botón del tiempo de ciclo
+        private bool EstructuraCorrecta = false;
+        private void TextTiempoCiclo_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
+            if (EstructuraCorrecta)
+            {
+                return;
+            }
+            int res;
+            try
+            {
+                res =Convert.ToInt32(TextTiempoCiclo.Text);
+                return;
+            }
+            catch (FormatException)
+            {
+                EstructuraCorrecta = true;
+                MessageBox.Show ("Escriba un número entero en el tiempo de ciclo");
+                TextTiempoCiclo.Text="";
+                EstructuraCorrecta = false;
+                return;       
+            }
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        //Botón de la distancia de seguridad
+        private void TextDistanciaSeguridad_TextChanged(object sender, EventArgs e)
+        {
+            if (EstructuraCorrecta)
+            {
+                return;
+            }
+
+            int res;
+            try
+            {
+                res = Convert.ToInt32(TextDistanciaSeguridad.Text);
+                return;
+            }
+            catch (FormatException)
+            {
+                EstructuraCorrecta = true;
+                MessageBox.Show("Escriba un número entero para la distancia de seguridad");
+                TextDistanciaSeguridad.Text = "";
+                EstructuraCorrecta = false;
+                return;
+            }
+        }
+
+
+        //Botón de autorrellenar
+        private void btnAutorellenar_Click(object sender, EventArgs e)
         {
             TextDistanciaSeguridad.Text = "10";
             TextTiempoCiclo.Text = "10";
-
         }
     }
 }
