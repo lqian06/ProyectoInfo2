@@ -102,7 +102,7 @@ namespace Interfaz
         //Botón de autorrellenar
         private void btnAutorellenar_Click(object sender, EventArgs e)
         {
-            TextDistanciaSeguridad.Text = "10";
+            TextDistanciaSeguridad.Text = "20";
             TextTiempoCiclo.Text = "10";
         }
 

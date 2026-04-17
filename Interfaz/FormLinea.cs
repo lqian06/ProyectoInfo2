@@ -262,7 +262,7 @@ namespace Interfaz
 
             }
 
-            bool conflicto = ListaVuelos.GetFlightPlan(0).HabraConflicto(ListaVuelos.GetFlightPlan(1), distSeguridad);
+            /*bool conflicto = ListaVuelos.GetFlightPlan(0).HabraConflicto(ListaVuelos.GetFlightPlan(1), distSeguridad);
             if (conflicto)
             {
                 CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
@@ -276,9 +276,29 @@ namespace Interfaz
                     GridDatosVuelos[5, 2].Value = ListaVuelos.GetFlightPlan(1).GetVelocidad();
                 }
                 
-            }
+            }*/
             
             panel1.Invalidate();
+
+            //arreglar conflicto
+            FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
+            FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
+
+            double sugerencia;
+            if (v1.SugerirVelocidadParaEvitarColision(v2, distSeguridad, out sugerencia))
+            {
+                CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
+
+                if (formPregunta.ShowDialog() == DialogResult.OK)
+                {
+                    v1.SetVelocidad(sugerencia);
+
+                    if (GridDatosVuelos.ColumnCount > 0)
+                        GridDatosVuelos[5, 1].Value = v1.GetVelocidad();
+
+                    MessageBox.Show("Velocidad modificada automáticamente para evitar colisión.");
+                }
+            }
         }
 
   
@@ -339,10 +359,17 @@ namespace Interfaz
         // Botón para cambiar la velocidad de los vuelos en el momento
         private void CambiarVelBtn_Click(object sender, EventArgs e)
         {
+            ChangeVelocity formChanging = new ChangeVelocity();
+            formChanging.SetPlanes(ListaVuelos);
+            formChanging.ShowDialog();
+            ListaVuelos = formChanging.GetPlanes();
+            SetVuelos(ListaVuelos.GetFlightPlan(0), ListaVuelos.GetFlightPlan(1), distSeguridad, tCiclo);
+
             try
             {
-                ListaVuelos.GetFlightPlan(0).SetVelocidad(Convert.ToDouble(NewVelFP1textBox.Text));
-                ListaVuelos.GetFlightPlan(1).SetVelocidad(Convert.ToDouble(NewVelFP2textBox.Text));
+
+                timer1.Stop();
+                segundos = 0;
 
                 if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
                 {
@@ -350,6 +377,13 @@ namespace Interfaz
                     GridDatosVuelos[5, 2].Value = ListaVuelos.GetFlightPlan(1).GetVelocidad();
                 }
                 MessageBox.Show("Velocidades cambiadas");
+                for (int i = 0; i < ListaVuelos.GetNum(); i++)
+                {
+                    FlightPlan vuelo = ListaVuelos.GetFlightPlan(i);
+                    Position inicio = vuelo.GetInitialPosition();
+                    vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
+                }
+                panel1.Invalidate();
             }
             catch (FormatException)
             {
