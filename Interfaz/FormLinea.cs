@@ -180,12 +180,14 @@ namespace Interfaz
             }
         }
 
-
+        
         // Botón iniciar simulación
         private void button1_Click(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             timer1.Start();
+            btnParar.Visible = true;
+            button1.Visible = false;
         }
 
 
@@ -193,10 +195,13 @@ namespace Interfaz
         private void btnParar_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            btnParar.Visible = false;
+            button1.Visible = true;
+
         }
 
 
-        //Botón de pausa
+        //Botón reiniciar simulación
         private void button5_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -238,8 +243,24 @@ namespace Interfaz
 
         }
 
+        //boton para retroceder 1 ciclo
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
 
-        
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                ListaVuelos.GetFlightPlan(i).Mover(-tCiclo);
+            }
+            panel1.Invalidate();
+
+            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
+            {
+                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
+                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
+            }
+        }
+
 
         // Función para mostrar los conflictos entre vuelos al cargar el formulario
         private void FormLinea_Load(object sender, EventArgs e)
