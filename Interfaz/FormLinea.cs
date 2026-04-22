@@ -179,13 +179,21 @@ namespace Interfaz
                 GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
             }
         }
-
-
+        
+        
         // Botón iniciar simulación
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             timer1.Start();
+            button1.Visible = false;
+            btnParar.Visible = true;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
 
 
@@ -193,6 +201,8 @@ namespace Interfaz
         private void btnParar_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            button1.Visible = true;
+            btnParar.Visible = false;
         }
 
 
