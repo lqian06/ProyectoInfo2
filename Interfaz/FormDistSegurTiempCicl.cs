@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Interfaz
+{
+    public partial class FormDistSegurTiempCicl : Form
+    {
+        //Iniciar el formulario
+        int tiempoCiclo;
+        double distanciaSeguridad;
+        public FormDistSegurTiempCicl()
+        {
+            InitializeComponent();
+        }
+
+
+        //Gets
+        public int GetDistancia()
+        {
+            if (string.IsNullOrEmpty(TextDistanciaSeguridad.Text)) return 0;
+            try { return Convert.ToInt32(TextDistanciaSeguridad.Text); }
+            catch { return 0; }
+        }
+
+        public int GetTiempo()
+        {
+            if (string.IsNullOrEmpty(TextTiempoCiclo.Text)) return 0;
+            try { return Convert.ToInt32(TextTiempoCiclo.Text); }
+            catch { return 0; }
+        }
+
+        //Sets
+        public void SetDistancia(double distancia)
+        {
+            distanciaSeguridad = distancia;
+        }
+
+        public void SetTiempo(int tiempo)
+        {
+            tiempoCiclo = tiempo;
+        }
+
+
+        //Botón del tiempo de ciclo
+        private bool EstructuraCorrecta = false;
+        private void TextTiempoCiclo_TextChanged(object sender, EventArgs e)
+        {
+            if (EstructuraCorrecta)
+            {
+                return;
+            }
+            int res;
+            try
+            {
+                res =Convert.ToInt32(TextTiempoCiclo.Text);
+                return;
+            }
+            catch (FormatException)
+            {
+                EstructuraCorrecta = true;
+                MessageBox.Show ("Escriba un número entero en el tiempo de ciclo");
+                TextTiempoCiclo.Text="";
+                EstructuraCorrecta = false;
+                return;       
+            }
+
+        }
+
+
+        //Botón de la distancia de seguridad
+        private void TextDistanciaSeguridad_TextChanged(object sender, EventArgs e)
+        {
+            if (EstructuraCorrecta)
+            {
+                return;
+            }
+
+            int res;
+            try
+            {
+                res = Convert.ToInt32(TextDistanciaSeguridad.Text);
+                return;
+            }
+            catch (FormatException)
+            {
+                EstructuraCorrecta = true;
+                MessageBox.Show("Escriba un número entero para la distancia de seguridad");
+                TextDistanciaSeguridad.Text = "";
+                EstructuraCorrecta = false;
+                return;
+            }
+        }
+
+
+        //Botón de autorrellenar
+        private void btnAutorellenar_Click(object sender, EventArgs e)
+        {
+            TextDistanciaSeguridad.Text = "20";
+            TextTiempoCiclo.Text = "10";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
+            distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
+            Close();
+        }
+    }
+}
