@@ -17,7 +17,7 @@ namespace Interfaz
     public partial class FormLinea : Form
     {
 
-        // Iniciar el formulario
+        // Iniciar el formulario.
         public FormLinea()
         {
             InitializeComponent();
