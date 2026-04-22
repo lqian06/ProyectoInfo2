@@ -38,14 +38,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.CambiarVelBtn = new System.Windows.Forms.Button();
             this.RestartSimBtn = new System.Windows.Forms.Button();
-            this.ChocaLabel = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.ChocaLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(622, 462);
+            this.button1.Location = new System.Drawing.Point(622, 486);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 70);
             this.button1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(768, 462);
+            this.button2.Location = new System.Drawing.Point(768, 486);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 70);
             this.button2.TabIndex = 1;
@@ -67,7 +67,7 @@
             // btnParar
             // 
             this.btnParar.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParar.Location = new System.Drawing.Point(622, 462);
+            this.btnParar.Location = new System.Drawing.Point(622, 486);
             this.btnParar.Name = "btnParar";
             this.btnParar.Size = new System.Drawing.Size(140, 70);
             this.btnParar.TabIndex = 2;
@@ -83,7 +83,7 @@
             // 
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1179, 430);
+            this.panel1.Size = new System.Drawing.Size(1320, 468);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
@@ -91,7 +91,7 @@
             // BtnInfoVuelos
             // 
             this.BtnInfoVuelos.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnInfoVuelos.Location = new System.Drawing.Point(1192, 462);
+            this.BtnInfoVuelos.Location = new System.Drawing.Point(12, 486);
             this.BtnInfoVuelos.Name = "BtnInfoVuelos";
             this.BtnInfoVuelos.Size = new System.Drawing.Size(140, 70);
             this.BtnInfoVuelos.TabIndex = 4;
@@ -111,18 +111,19 @@
             // 
             // CambiarVelBtn
             // 
-            this.CambiarVelBtn.Location = new System.Drawing.Point(1217, 22);
+            this.CambiarVelBtn.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CambiarVelBtn.Location = new System.Drawing.Point(1192, 486);
             this.CambiarVelBtn.Name = "CambiarVelBtn";
-            this.CambiarVelBtn.Size = new System.Drawing.Size(100, 56);
+            this.CambiarVelBtn.Size = new System.Drawing.Size(140, 70);
             this.CambiarVelBtn.TabIndex = 6;
-            this.CambiarVelBtn.Text = "Cambiar Velocidades";
+            this.CambiarVelBtn.Text = "⏲️";
             this.CambiarVelBtn.UseVisualStyleBackColor = true;
             this.CambiarVelBtn.Click += new System.EventHandler(this.CambiarVelBtn_Click);
             // 
             // RestartSimBtn
             // 
             this.RestartSimBtn.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartSimBtn.Location = new System.Drawing.Point(12, 462);
+            this.RestartSimBtn.Location = new System.Drawing.Point(330, 486);
             this.RestartSimBtn.Name = "RestartSimBtn";
             this.RestartSimBtn.Size = new System.Drawing.Size(140, 70);
             this.RestartSimBtn.TabIndex = 9;
@@ -130,19 +131,10 @@
             this.RestartSimBtn.UseVisualStyleBackColor = true;
             this.RestartSimBtn.Click += new System.EventHandler(this.RestartSimBtn_Click);
             // 
-            // ChocaLabel
-            // 
-            this.ChocaLabel.AutoSize = true;
-            this.ChocaLabel.Location = new System.Drawing.Point(1248, 116);
-            this.ChocaLabel.Name = "ChocaLabel";
-            this.ChocaLabel.Size = new System.Drawing.Size(46, 16);
-            this.ChocaLabel.TabIndex = 10;
-            this.ChocaLabel.Text = "Choca";
-            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(476, 462);
+            this.button3.Location = new System.Drawing.Point(476, 486);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 70);
             this.button3.TabIndex = 11;
@@ -150,13 +142,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ChocaLabel
+            // 
+            this.ChocaLabel.AutoSize = true;
+            this.ChocaLabel.Location = new System.Drawing.Point(1120, 511);
+            this.ChocaLabel.Name = "ChocaLabel";
+            this.ChocaLabel.Size = new System.Drawing.Size(46, 16);
+            this.ChocaLabel.TabIndex = 10;
+            this.ChocaLabel.Text = "Choca";
+            // 
             // FormLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 544);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(1344, 568);
             this.Controls.Add(this.ChocaLabel);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.RestartSimBtn);
             this.Controls.Add(this.CambiarVelBtn);
             this.Controls.Add(this.BtnInfoVuelos);
@@ -183,7 +184,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button CambiarVelBtn;
         private System.Windows.Forms.Button RestartSimBtn;
-        private System.Windows.Forms.Label ChocaLabel;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label ChocaLabel;
     }
 }

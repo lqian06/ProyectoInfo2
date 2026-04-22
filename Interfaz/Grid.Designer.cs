@@ -40,6 +40,7 @@
             this.GridDatosVuelos.RowHeadersWidth = 51;
             this.GridDatosVuelos.Size = new System.Drawing.Size(776, 426);
             this.GridDatosVuelos.TabIndex = 0;
+            this.GridDatosVuelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellClick);
             // 
             // Grid
             // 

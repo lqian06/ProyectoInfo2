@@ -13,13 +13,25 @@ namespace Interfaz
 {
     public partial class Grid : Form
     {
+        FlightPlanList ListaVuelosInterna;
         public Grid()
         {
             InitializeComponent();
         }
+        private void GridDatosVuelos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificamos que la lista no sea nula y tenga al menos 2 vuelos
+            if (ListaVuelosInterna != null)
+            {
+                double distancia = ListaVuelosInterna.GetFlightPlan(0).Distancia(ListaVuelosInterna.GetFlightPlan(1));
+                MessageBox.Show("La distancia entre los vuelos es: " + Math.Round(distancia, 2) + " metros.");
+            }
+        }
 
         public void CargarDatos(FlightPlanList ListaVuelos, string idA, string idB)
         {
+            this.ListaVuelosInterna = ListaVuelos;
+
             GridDatosVuelos.ColumnCount = 6;
             GridDatosVuelos.RowCount = 10;
             GridDatosVuelos.ColumnHeadersVisible = false;
@@ -54,6 +66,8 @@ namespace Interfaz
 
         public void ActualizarValores(FlightPlanList ListaVuelos, string idA, string idB)
         {
+            this.ListaVuelosInterna = ListaVuelos;
+
             if (ListaVuelos.GetNum() < 2) return;
 
             var v1 = ListaVuelos.GetFlightPlan(0);

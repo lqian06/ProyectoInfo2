@@ -358,6 +358,7 @@ namespace Interfaz
                     vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
                 }
                 panel1.Invalidate();
+                ActualizarGridExterno();
             }
             catch (FormatException)
             {
