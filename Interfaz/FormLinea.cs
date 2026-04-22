@@ -33,7 +33,7 @@ namespace Interfaz
         string idA, idB;
         Position inicioA, inicioB, currentA, currentB, finalA, finalB, currentA1, currentB1;
         double velocityA, velocidadB;
-
+        Grid ventanaGrid;
 
         // Función para establecer los vuelos, la distancia de seguridad y el tiempo de ciclo
         public void SetVuelos(FlightPlan v1, FlightPlan v2, int ds, int tc)
@@ -167,16 +167,11 @@ namespace Interfaz
                     }
                 }
                 panel1.Invalidate();
+                ActualizarGridExterno();
             }
             else
             {
                 timer1.Stop();
-            }
-
-            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-            {
-                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
-                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
             }
         }
 
@@ -215,12 +210,9 @@ namespace Interfaz
                 vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
 
             }
-            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-            {
-                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
-                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
-            }
+            
             panel1.Invalidate();
+            ActualizarGridExterno();
         }
 
 
@@ -234,13 +226,7 @@ namespace Interfaz
                 ListaVuelos.GetFlightPlan(i).Mover(tCiclo);
             }
             panel1.Invalidate();
-
-            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-            {
-                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
-                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
-            }
-
+            ActualizarGridExterno();
         }
 
         //boton para retroceder 1 ciclo
@@ -254,11 +240,7 @@ namespace Interfaz
             }
             panel1.Invalidate();
 
-            if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-            {
-                GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
-                GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
-            }
+            ActualizarGridExterno();
         }
 
 
@@ -303,10 +285,8 @@ namespace Interfaz
                 if (formPregunta.ShowDialog() == DialogResult.OK)
                 {
                     v1.SetVelocidad(sugerencia);
-
-                    if (GridDatosVuelos.ColumnCount > 0)
-                        GridDatosVuelos[5, 1].Value = v1.GetVelocidad();
-
+                    ActualizarGridExterno();
+                                        
                     MessageBox.Show("Velocidad modificada automáticamente para evitar colisión.");
                 }
             }
@@ -318,38 +298,25 @@ namespace Interfaz
         {
 
         }
-
+        //abrir grid con información de los vuelos
         private void BtnInfoVuelos_Click(object sender, EventArgs e)
         {
-            //Para el grid
-            GridDatosVuelos.ColumnCount = 6;        //El número de fila y columna hacemos una función para que cuente los datos y que vaya creciendo a medida que se añaden vuelos, pero por ahora lo dejamos así
-            GridDatosVuelos.RowCount = 10;
-            GridDatosVuelos.ColumnHeadersVisible = false;
-            GridDatosVuelos.RowHeadersVisible = false;
-
-            GridDatosVuelos[1, 0].Value = "ID";
-            GridDatosVuelos[2, 0].Value = "InitialPosition";
-            GridDatosVuelos[3, 0].Value = "CurrentPosition";
-            GridDatosVuelos[4, 0].Value = "FinalPosition";
-            GridDatosVuelos[5, 0].Value = "Velocidad";
-
-            GridDatosVuelos[0, 1].Value = "Vuelo A";
-            GridDatosVuelos[0, 2].Value = "Vuelo B";
-
-            GridDatosVuelos[1, 1].Value = idA;
-            GridDatosVuelos[2, 1].Value = inicioA.GetX() + "," + inicioA.GetY();
-            GridDatosVuelos[3, 1].Value = ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetX()+ "," + ListaVuelos.GetFlightPlan(0).GetCurrentPosition().GetY();
-            GridDatosVuelos[4, 1].Value = finalA.GetX() + "," + finalA.GetY();
-            GridDatosVuelos[5, 1].Value = velocityA;
-
-            GridDatosVuelos[1, 2].Value = idB;
-            GridDatosVuelos[2, 2].Value = inicioB.GetX() + "," + inicioB.GetY();
-            GridDatosVuelos[3, 2].Value = ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetX() + "," + ListaVuelos.GetFlightPlan(1).GetCurrentPosition().GetY();
-            GridDatosVuelos[4, 2].Value = finalB.GetX() + "," + finalB.GetY();
-            GridDatosVuelos[5, 2].Value = velocidadB;
+            if (ventanaGrid == null)
+            {
+                ventanaGrid = new Grid();
+                ventanaGrid.Show();
+            }
+            ventanaGrid.CargarDatos(ListaVuelos, idA, idB);
         }
 
-
+        //Actualizar el grid con la información de los vuelos cada vez que se mueven
+        private void ActualizarGridExterno()
+        {
+            if (ventanaGrid != null && !ventanaGrid.IsDisposed)
+            {
+                ventanaGrid.ActualizarValores(ListaVuelos, idA, idB);
+            }
+        }
 
         //Botón de reiniciar simulación
         private void RestartSimBtn_Click(object sender, EventArgs e)
@@ -364,6 +331,7 @@ namespace Interfaz
                 vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
             }
             panel1.Invalidate();
+            ActualizarGridExterno();
         }
 
 
@@ -382,11 +350,6 @@ namespace Interfaz
                 timer1.Stop();
                 segundos = 0;
 
-                if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-                {
-                    GridDatosVuelos[5, 1].Value = ListaVuelos.GetFlightPlan(0).GetVelocidad();
-                    GridDatosVuelos[5, 2].Value = ListaVuelos.GetFlightPlan(1).GetVelocidad();
-                }
                 MessageBox.Show("Velocidades cambiadas");
                 for (int i = 0; i < ListaVuelos.GetNum(); i++)
                 {

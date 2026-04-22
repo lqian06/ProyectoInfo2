@@ -35,13 +35,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnInfoVuelos = new System.Windows.Forms.Button();
-            this.GridDatosVuelos = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.CambiarVelBtn = new System.Windows.Forms.Button();
             this.RestartSimBtn = new System.Windows.Forms.Button();
             this.ChocaLabel = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -101,18 +99,6 @@
             this.BtnInfoVuelos.UseVisualStyleBackColor = true;
             this.BtnInfoVuelos.Click += new System.EventHandler(this.BtnInfoVuelos_Click);
             // 
-            // GridDatosVuelos
-            // 
-            this.GridDatosVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridDatosVuelos.Location = new System.Drawing.Point(1217, 148);
-            this.GridDatosVuelos.Name = "GridDatosVuelos";
-            this.GridDatosVuelos.RowHeadersWidth = 51;
-            this.GridDatosVuelos.RowTemplate.Height = 24;
-            this.GridDatosVuelos.Size = new System.Drawing.Size(100, 77);
-            this.GridDatosVuelos.TabIndex = 5;
-            this.GridDatosVuelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellClick);
-            this.GridDatosVuelos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDatosVuelos_CellContentClick);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(1228, 449);
@@ -170,7 +156,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 544);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.GridDatosVuelos);
             this.Controls.Add(this.ChocaLabel);
             this.Controls.Add(this.RestartSimBtn);
             this.Controls.Add(this.CambiarVelBtn);
@@ -182,7 +167,6 @@
             this.Name = "FormLinea";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.FormLinea_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GridDatosVuelos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +180,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnInfoVuelos;
-        private System.Windows.Forms.DataGridView GridDatosVuelos;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button CambiarVelBtn;
         private System.Windows.Forms.Button RestartSimBtn;
