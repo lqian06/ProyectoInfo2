@@ -145,7 +145,7 @@
             // ChocaLabel
             // 
             this.ChocaLabel.AutoSize = true;
-            this.ChocaLabel.Location = new System.Drawing.Point(1120, 511);
+            this.ChocaLabel.Location = new System.Drawing.Point(984, 496);
             this.ChocaLabel.Name = "ChocaLabel";
             this.ChocaLabel.Size = new System.Drawing.Size(46, 16);
             this.ChocaLabel.TabIndex = 10;
