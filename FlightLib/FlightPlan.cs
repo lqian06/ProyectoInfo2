@@ -11,15 +11,19 @@ namespace FlightLib
         // Atributos
 
         string id; // identificador
+        string company; // compañia
         Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
 
+        private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
+
         // Constructures
-        public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
+        public FlightPlan(string id, string company, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
             this.id = id;
+            this.company = company;
             this.initialPosition = new Position(cpx, cpy);
             this.currentPosition = new Position(cpx, cpy);
             this.finalPosition = new Position(fpx, fpy);
@@ -73,6 +77,13 @@ namespace FlightLib
             this.initialPosition = new Position(x, y);
         }
 
+        public string GetCompany()
+        {
+            return this.company;
+        }
+
+        
+
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -85,6 +96,8 @@ namespace FlightLib
         public void Mover(double tiempo)
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         {
+            // Guardamos la posición actual en el historial de posiciones
+            historialPosiciones.Push(new Position(currentPosition.GetX(), currentPosition.GetY()));
             //Calculamos la distancia recorrida en el tiempo dado
             double distancia = tiempo * this.velocidad / 60;
 
@@ -223,6 +236,18 @@ namespace FlightLib
             return false;
         }
 
+        public void Deshacer()
+        {
+            if (historialPosiciones.Count > 0)
+            {                
+                this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
+            }
+        }
+        public string Escribirlinea()
+        {
+            // separar los datos por espacios y escribirlos en una sola línea
+            return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
+        }
 
     }
 }

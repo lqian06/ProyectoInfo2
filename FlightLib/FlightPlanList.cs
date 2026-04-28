@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace FlightLib
 {
@@ -61,6 +62,61 @@ namespace FlightLib
                 i++;
             }
 
+        }
+
+        public void CargarDesdeArchivo(string nombreArchivo)
+        {
+            try
+            {
+                StreamReader r = new StreamReader(nombreArchivo);
+                string linea = r.ReadLine();
+
+                number = 0;
+
+                while (linea != null && number < 100)
+                {
+                    string[] datos = linea.Split(' ');
+
+                    if (datos.Length >= 7) // tiene que tener al menos 7 elementos para ser un FlightPlan válido
+                    {
+                        string id = datos[0];
+                        string comp = datos[1];
+                        double cpx = Convert.ToDouble(datos[2]);
+                        double cpy = Convert.ToDouble(datos[3]);
+                        double fpx = Convert.ToDouble(datos[4]);
+                        double fpy = Convert.ToDouble(datos[5]);
+                        double vel = Convert.ToDouble(datos[6]);
+
+                        // crear objeto y agregarlo al vector
+                        FlightPlan p = new FlightPlan(id, comp, cpx, cpy, fpx, fpy, vel);
+                        vector[number] = p;
+                        number++;
+                    }
+                    linea = r.ReadLine();
+                }
+                r.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("No se encontró el archivo");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al cagar");
+            }
+        }
+
+        public void GuardarEnArchivo(string nombreArchivo)
+        {
+            // El crea o sobrescribe el archivo, si exist
+            StreamWriter write = new StreamWriter(nombreArchivo);
+            int i = 0;
+            while (i < number)
+            {                
+                write.WriteLine(vector[i].Escribirlinea());
+                i++;
+            }
+            write.Close();
         }
 
     }

@@ -108,9 +108,16 @@ namespace Interfaz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
-            distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
-            Close();
+            try
+            {
+                tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
+                distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al convertir los valores. Asegúrese de poner números válidos.");
+            }            
         }
     }
 }
