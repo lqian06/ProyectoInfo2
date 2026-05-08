@@ -71,7 +71,7 @@ namespace FlightLib
 
         }
 
-        public void CargarDesdeArchivo(string nombreArchivo)
+        public bool CargarDesdeArchivo(string nombreArchivo)
         {
             try
             {
@@ -86,30 +86,24 @@ namespace FlightLib
 
                     if (datos.Length >= 7) // tiene que tener al menos 7 elementos para ser un FlightPlan válido
                     {
-                        string id = datos[0];
-                        string comp = datos[1];
-                        double cpx = Convert.ToDouble(datos[2]);
-                        double cpy = Convert.ToDouble(datos[3]);
-                        double fpx = Convert.ToDouble(datos[4]);
-                        double fpy = Convert.ToDouble(datos[5]);
-                        double vel = Convert.ToDouble(datos[6]);
-
-                        // crear objeto y agregarlo al vector
-                        FlightPlan p = new FlightPlan(id, comp, cpx, cpy, fpx, fpy, vel);
-                        vector[number] = p;
+                        FlightPlan f = new FlightPlan(datos[0], datos[1], Convert.ToDouble(datos[2]), Convert.ToDouble(datos[3]), Convert.ToDouble(datos[4]), Convert.ToDouble(datos[5]), Convert.ToDouble(datos[6]));
+                        vector[number] = f;
                         number++;
                     }
                     linea = r.ReadLine();
                 }
                 r.Close();
+                return true;
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine("No se encontró el archivo");
+                return false;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error al cagar");
+                return false;
             }
         }
 
@@ -119,12 +113,12 @@ namespace FlightLib
             StreamWriter write = new StreamWriter(nombreArchivo);
             int i = 0;
             while (i < number)
-            {                
+            {
                 write.WriteLine(vector[i].Escribirlinea());
                 i++;
             }
             write.Close();
-        }
+        }      
 
      }
 }
