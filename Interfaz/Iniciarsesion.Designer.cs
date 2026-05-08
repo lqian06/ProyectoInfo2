@@ -28,33 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BotonIniciarSesion = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Botoncrearusuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            //             
             // 
-            // button1
+            // BotonIniciarSesion
             // 
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 398);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(311, 49);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Iniciar sesión";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(311, 42);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Crear usuario";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BotonIniciarSesion.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BotonIniciarSesion.Location = new System.Drawing.Point(12, 398);
+            this.BotonIniciarSesion.Name = "BotonIniciarSesion";
+            this.BotonIniciarSesion.Size = new System.Drawing.Size(311, 49);
+            this.BotonIniciarSesion.TabIndex = 2;
+            this.BotonIniciarSesion.Text = "Iniciar sesión";
+            this.BotonIniciarSesion.UseVisualStyleBackColor = true;
+            this.BotonIniciarSesion.Click += new System.EventHandler(this.BotonIniciarSesion_Click);
             // 
             // textBox1
             // 
@@ -88,17 +79,27 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Contraseña";
             // 
+            // Botoncrearusuario
+            // 
+            this.Botoncrearusuario.Location = new System.Drawing.Point(12, 453);
+            this.Botoncrearusuario.Name = "Botoncrearusuario";
+            this.Botoncrearusuario.Size = new System.Drawing.Size(311, 42);
+            this.Botoncrearusuario.TabIndex = 8;
+            this.Botoncrearusuario.Text = "Crear Usuario";
+            this.Botoncrearusuario.UseVisualStyleBackColor = true;
+            this.Botoncrearusuario.Click += new System.EventHandler(this.Botoncrearusuario_Click);
+            // 
             // FormInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 507);
+            this.Controls.Add(this.Botoncrearusuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BotonIniciarSesion);
             this.Name = "FormInicioSesion";
             this.Text = "FormInicioSesion";
             this.ResumeLayout(false);
@@ -107,11 +108,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BotonIniciarSesion;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Botoncrearusuario;
     }
 }
