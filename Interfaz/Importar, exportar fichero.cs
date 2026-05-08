@@ -1,6 +1,4 @@
-﻿using FlightLib;
-using Interfaz;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FlightLib;
 
 namespace Interfaz
 {
@@ -20,9 +19,13 @@ namespace Interfaz
             InitializeComponent();
         }
 
-       
+ 
+           
+        private void ExportarFlightPlanTextBox_TextChanged(object sender, EventArgs e)
+        {
 
-        //Comprueba que se han cargado los datos
+        }
+
         private void bttnImportarFlightPlan_Click(object sender, EventArgs e)
         {
             FlightPlanList flightPlanList = new FlightPlanList();
@@ -48,36 +51,5 @@ namespace Interfaz
                 MessageBox.Show("El formato del archivo no es correcto");
             }
         }
-
-        //Cogemos los datos del menú de los FlightPlans
-        FlightPlanList lista;
-
-        public void SetLista(FlightPlanList lista)
-        {
-            this.lista = lista;
-        }
-        private void bttnExportarFlightPlan_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FlightPlan v1 = lista.GetFlightPlan(0);
-                FlightPlan v2 = lista.GetFlightPlan(1);
-
-                if (v1 == null || v2 == null)
-                {
-                    MessageBox.Show("Parámetros no definidos, seleccione en el menú para rellenar los campos");
-                }
-                else
-                {
-                    lista.GuardarEnArchivo(ExportarFlightPlanTextBox.Text);
-                    MessageBox.Show("Archivo guardado correctamente.");
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("El formato del archivo no es correcto");
-            }
-        }
     }
 }
-

@@ -75,6 +75,21 @@ namespace Interfaz
                 }
 
  
+           
+                System.Drawing.Graphics graphics = e.Graphics;
+
+                // Points that define the rectangle
+                Point[] polygonPoints = new Point[4];
+                polygonPoints[0] = new Point(70, 70);
+                polygonPoints[1] = new Point(120, 120);
+                polygonPoints[2] = new Point(70, 120);
+                polygonPoints[3] = new Point(120, 70);
+
+                 SolidBrush myBrush = new SolidBrush(Color.Red);
+                    graphics.FillPolygon(myBrush, polygonPoints);
+                    myBrush.Dispose();
+         
+
 
                 //Círculo
                 FlightPlanList distancias = new FlightPlanList();
@@ -283,19 +298,17 @@ namespace Interfaz
             FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
             FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
 
-            if (v1.HabraConflicto(v2, distSeguridad))
+            double sugerencia;
+            if (v1.SugerirVelocidadParaEvitarColision(v2, distSeguridad, out sugerencia))
             {
                 CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
-                formPregunta.SetPlanes(ListaVuelos, distSeguridad);
-                formPregunta.ShowDialog();
 
-                if (formPregunta.GetConflictoResuelto())
+                if (formPregunta.ShowDialog() == DialogResult.OK)
                 {
-                    ListaVuelos = formPregunta.GetPlanes();
-                    SetVuelos(ListaVuelos.GetFlightPlan(0), ListaVuelos.GetFlightPlan(1), distSeguridad, tCiclo);
-                    ChocaLabel.Text = "No choca";
-                    panel1.Invalidate();
+                    v1.SetVelocidad(sugerencia);
                     ActualizarGridExterno();
+                                        
+                    MessageBox.Show("Velocidad modificada automáticamente para evitar colisión.");
                 }
             }
         }

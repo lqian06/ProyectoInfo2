@@ -13,6 +13,11 @@ namespace FlightLib
         FlightPlan[] vector = new FlightPlan[100];
         int number = 0;
 
+        public FlightPlanList()
+        {
+            FlightPlan[] vector = new FlightPlan[100];
+            int number = 0;
+        }
 
         public int AddFlightPlan(FlightPlan p)
         {
@@ -116,6 +121,6 @@ namespace FlightLib
             write.Close();
         }      
 
-    }
+     }
 }
 
