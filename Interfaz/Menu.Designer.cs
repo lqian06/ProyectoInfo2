@@ -36,6 +36,7 @@
             this.uNOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Botón2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tRESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ImportarFlightPlan = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnConflicto = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.menúToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,9 +85,10 @@
             this.menúToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uNOToolStripMenuItem,
             this.Botón2,
-            this.tRESToolStripMenuItem});
+            this.tRESToolStripMenuItem,
+            this.ImportarFlightPlan});
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
-            this.menúToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menúToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menúToolStripMenuItem.Text = "Menú";
             this.menúToolStripMenuItem.Click += new System.EventHandler(this.menúToolStripMenuItem_Click);
             // 
@@ -111,6 +113,13 @@
             this.tRESToolStripMenuItem.Text = "Simulador";
             this.tRESToolStripMenuItem.Click += new System.EventHandler(this.tRESToolStripMenuItem_Click);
             // 
+            // ImportarFlightPlan
+            // 
+            this.ImportarFlightPlan.Name = "ImportarFlightPlan";
+            this.ImportarFlightPlan.Size = new System.Drawing.Size(257, 26);
+            this.ImportarFlightPlan.Text = "Importar FlightPlan";
+            this.ImportarFlightPlan.Click += new System.EventHandler(this.ImportarFlightPlan_Click);
+            // 
             // BtnConflicto
             // 
             this.BtnConflicto.Font = new System.Drawing.Font("Comic Sans MS", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnConflicto);
             this.Controls.Add(this.ButtonNico);
@@ -134,6 +144,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Menu";
             this.Text = "Form1";
+            this.TransparencyKey = System.Drawing.SystemColors.ActiveCaption;
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -152,6 +163,7 @@
         private System.Windows.Forms.ToolStripMenuItem Botón2;
         private System.Windows.Forms.ToolStripMenuItem tRESToolStripMenuItem;
         private System.Windows.Forms.Button BtnConflicto;
+        private System.Windows.Forms.ToolStripMenuItem ImportarFlightPlan;
     }
 }
 

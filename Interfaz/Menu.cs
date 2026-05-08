@@ -87,5 +87,13 @@ namespace Interfaz
                     MessageBox.Show("Error: No hay datos de vuelos.");
             }
         }
+
+        private void ImportarFlightPlan_Click(object sender, EventArgs e)
+        {
+           
+           Importar__exportar_fichero form4 = new Importar__exportar_fichero();
+           form4.ShowDialog();
+
+        }
     }
 }

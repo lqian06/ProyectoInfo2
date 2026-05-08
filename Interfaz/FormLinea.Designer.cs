@@ -40,6 +40,7 @@
             this.RestartSimBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ChocaLabel = new System.Windows.Forms.Label();
+            this.seguridad = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -150,12 +151,24 @@
             this.ChocaLabel.Size = new System.Drawing.Size(46, 16);
             this.ChocaLabel.TabIndex = 10;
             this.ChocaLabel.Text = "Choca";
+            this.ChocaLabel.Click += new System.EventHandler(this.ChocaLabel_Click);
+            // 
+            // seguridad
+            // 
+            this.seguridad.AutoSize = true;
+            this.seguridad.Location = new System.Drawing.Point(984, 524);
+            this.seguridad.Name = "seguridad";
+            this.seguridad.Size = new System.Drawing.Size(51, 16);
+            this.seguridad.TabIndex = 12;
+            this.seguridad.Text = "Seguro";
+            this.seguridad.Click += new System.EventHandler(this.seguridad_Click);
             // 
             // FormLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 568);
+            this.Controls.Add(this.seguridad);
             this.Controls.Add(this.ChocaLabel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.RestartSimBtn);
@@ -186,5 +199,6 @@
         private System.Windows.Forms.Button RestartSimBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label ChocaLabel;
+        private System.Windows.Forms.Label seguridad;
     }
 }

@@ -42,5 +42,6 @@ namespace Interfaz
                 MessageBox.Show("Introduce un número válido");
             }
         }
+
     }
 }

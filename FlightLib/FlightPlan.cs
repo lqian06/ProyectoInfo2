@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FlightLib;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +13,17 @@ namespace FlightLib
         // Atributos
 
         string id; // identificador
+        string company; // compañia aerea
+        double initialx; // coordenada x de la posición inicial
+        double initialy; // coordenada y de la posición inicial
+        double finalx; // coordenada x de la posición final
+        double finaly; // coordenada y de la posición final
         Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
 
-        // Constructures
+        // Constructor primeras versiones sin compañia
         public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
             this.id = id;
@@ -24,6 +31,17 @@ namespace FlightLib
             this.currentPosition = new Position(cpx, cpy);
             this.finalPosition = new Position(fpx, fpy);
             this.velocidad = velocidad;
+        }
+
+        //FlightPlan nuevo más compañía para la Versión 2
+        public FlightPlan (string id, string company, double initialx, double initialy, double finalx, double finaly, double velocidad)
+        {
+            this.id = id;
+            this.company= company;
+            this.initialPosition = new Position(initialx, initialy);
+            this.finalPosition = new Position(finalx, finaly);
+            this.velocidad = velocidad;
+
         }
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -72,6 +90,7 @@ namespace FlightLib
         {
             this.initialPosition = new Position(x, y);
         }
+
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -223,6 +242,62 @@ namespace FlightLib
             return false;
         }
 
+        // TWC 
 
+        public bool areaSegura(FlightPlan b, double distanciaSeguridad)
+        {
+
+            Position posicionSegura1 = new Position(70, 70);
+            Position posicionSegura2 = new Position(120, 120);
+            Position posicionSegura3 = new Position(70, 120);
+            Position posicionSegura4 = new Position(120, 70);
+
+            if (distanciaSeguridad < posicionSegura1.GetX() && distanciaSeguridad < posicionSegura1.GetY() && distanciaSeguridad < posicionSegura2.GetX() && distanciaSeguridad < posicionSegura2.GetY() && distanciaSeguridad < posicionSegura3.GetX() && distanciaSeguridad < posicionSegura3.GetY() && distanciaSeguridad < posicionSegura4.GetX() && distanciaSeguridad < posicionSegura4.GetY())
+
+            {
+                return true;
+
+            }
+              
+            else
+            {
+                return false;
+            }
+        }
+
+        //Leer fichero
+        public static List<FlightPlan> LeerFlightPlanFichero(string NombreFichero)
+        {
+            StreamReader R = new StreamReader(NombreFichero);
+            List<FlightPlan> FlightPlans = new List<FlightPlan>();
+
+            string linea = R.ReadLine();
+            int i = 0;
+            while (linea != null)
+            {
+                string[] trozos =linea.Split(' ');
+                FlightPlan f = new FlightPlan(trozos[0], trozos[1], Convert.ToDouble(trozos[2]), Convert.ToDouble(trozos[3]), Convert.ToDouble(trozos[4]), Convert.ToDouble(trozos[5]), Convert.ToDouble(trozos[6]));
+                FlightPlans.Add(f);
+                linea = R.ReadLine();
+                i++;
+            }
+            R.Close();
+            return FlightPlans;
+        }
+
+        //Escribir fichero
+        static void EscribirFlightPlanFichero(List<FlightPlan> lista, string nombreFichero)
+        {
+            StreamWriter W = new StreamWriter(nombreFichero);
+            int i = 0;
+            while (i < lista.Count)
+            {
+                FlightPlan f = lista[i];
+                W.WriteLine("{0} {1} {2} {3} {4} {5} {6}", f.id, f.company, f.initialx, f.initialy, f.finalx, f.finaly, f.velocidad);
+                i++;
+            }
+            W.Close();
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FlightLib;
+using Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,23 @@ namespace Interfaz
                 {
                     e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)fin.GetX(), (int)fin.GetY());
                 }
+
+ 
+           
+                System.Drawing.Graphics graphics = e.Graphics;
+
+                // Points that define the rectangle
+                Point[] polygonPoints = new Point[4];
+                polygonPoints[0] = new Point(70, 70);
+                polygonPoints[1] = new Point(120, 120);
+                polygonPoints[2] = new Point(70, 120);
+                polygonPoints[3] = new Point(120, 70);
+
+                 SolidBrush myBrush = new SolidBrush(Color.Red);
+                    graphics.FillPolygon(myBrush, polygonPoints);
+                    myBrush.Dispose();
+         
+
 
                 //Círculo
                 FlightPlanList distancias = new FlightPlanList();
@@ -196,6 +214,8 @@ namespace Interfaz
         }
 
 
+
+
         //Botón reiniciar simulación
         private void button5_Click(object sender, EventArgs e)
         {
@@ -214,6 +234,7 @@ namespace Interfaz
             panel1.Invalidate();
             ActualizarGridExterno();
         }
+
 
 
         // Botón añadir 1 ciclo
@@ -364,6 +385,39 @@ namespace Interfaz
             {
                 MessageBox.Show("Por favor, ingrese un número válido para la velocidad.");
             }
+
         }
+
+
+ 
+        private void ChocaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //TWC
+
+        private void seguridad_Click(object sender, EventArgs e)
+        {
+            FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
+            FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
+
+            for (int i = 0; i < ListaVuelos.GetNum(); i++)
+            {
+                if (ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true)
+                {
+                    seguridad.Text = "No seguro";
+
+                }
+                if (ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false)
+                {
+                    seguridad.Text = "Seguro";
+                }
+
+               
+            }
+        }
+
     }
 }
+
