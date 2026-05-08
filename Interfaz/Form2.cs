@@ -79,20 +79,22 @@ namespace Interfaz
             {  
                 string ida = textBox1.Text;
                 int velocidada = Convert.ToInt32(textBox2.Text);
+                string company= "Iberia";
                 int xia = Convert.ToInt32(textBox3.Text);
                 int yia = Convert.ToInt32(textBox4.Text);
                 int xfa = Convert.ToInt32(textBox5.Text);
                 int yfa = Convert.ToInt32(textBox6.Text);
 
                 string idb = textBox7.Text;
+                string companyb = "Iberia";
                 int velocidadb = Convert.ToInt32(textBox8.Text);
                 int xib = Convert.ToInt32(textBox9.Text);
                 int yib = Convert.ToInt32(textBox10.Text);
                 int xfb = Convert.ToInt32(textBox11.Text);
                 int yfb = Convert.ToInt32(textBox12.Text);
 
-                this.plan_a = new FlightPlan(ida, xia, yia, xfa, yfa, velocidada);
-                this.plan_b = new FlightPlan(idb, xib, yib, xfb, yfb, velocidadb);
+                this.plan_a = new FlightPlan(ida, company, xia, yia, xfa, yfa, velocidada);
+                this.plan_b = new FlightPlan(idb, company, xib, yib, xfb, yfb, velocidadb);
                 int añadida = lista.AddFlightPlan(plan_a);
                 int añadidb = lista.AddFlightPlan(plan_b);
 

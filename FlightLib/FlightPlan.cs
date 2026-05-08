@@ -13,7 +13,7 @@ namespace FlightLib
         // Atributos
 
         string id; // identificador
-        string company; // compañia aerea
+        string company; // compañia
         double initialx; // coordenada x de la posición inicial
         double initialy; // coordenada y de la posición inicial
         double finalx; // coordenada x de la posición final
@@ -22,26 +22,17 @@ namespace FlightLib
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
+        private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
-        // Constructor primeras versiones sin compañia
-        public FlightPlan(string id, double cpx, double cpy, double fpx, double fpy, double velocidad)
+        // Constructures
+        public FlightPlan(string id, string company, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
             this.id = id;
+            this.company = company;
             this.initialPosition = new Position(cpx, cpy);
             this.currentPosition = new Position(cpx, cpy);
             this.finalPosition = new Position(fpx, fpy);
             this.velocidad = velocidad;
-        }
-
-        //FlightPlan nuevo más compañía para la Versión 2
-        public FlightPlan (string id, string company, double initialx, double initialy, double finalx, double finaly, double velocidad)
-        {
-            this.id = id;
-            this.company= company;
-            this.initialPosition = new Position(initialx, initialy);
-            this.finalPosition = new Position(finalx, finaly);
-            this.velocidad = velocidad;
-
         }
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -90,6 +81,11 @@ namespace FlightLib
         {
             this.initialPosition = new Position(x, y);
         }
+        public string GetCompany()
+        {
+            return this.company;
+        }
+
 
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -98,12 +94,13 @@ namespace FlightLib
 
 
 
-
-
-
         public void Mover(double tiempo)
         // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         {
+
+            // Guardamos la posición actual en el historial de posiciones
+            historialPosiciones.Push(new Position(currentPosition.GetX(), currentPosition.GetY()));
+
             //Calculamos la distancia recorrida en el tiempo dado
             double distancia = tiempo * this.velocidad / 60;
 
@@ -242,62 +239,22 @@ namespace FlightLib
             return false;
         }
 
-        // TWC 
-
-        public bool areaSegura(FlightPlan b, double distanciaSeguridad)
+        public void Deshacer()
         {
-
-            Position posicionSegura1 = new Position(70, 70);
-            Position posicionSegura2 = new Position(120, 120);
-            Position posicionSegura3 = new Position(70, 120);
-            Position posicionSegura4 = new Position(120, 70);
-
-            if (distanciaSeguridad < posicionSegura1.GetX() && distanciaSeguridad < posicionSegura1.GetY() && distanciaSeguridad < posicionSegura2.GetX() && distanciaSeguridad < posicionSegura2.GetY() && distanciaSeguridad < posicionSegura3.GetX() && distanciaSeguridad < posicionSegura3.GetY() && distanciaSeguridad < posicionSegura4.GetX() && distanciaSeguridad < posicionSegura4.GetY())
-
+            if (historialPosiciones.Count > 0)
             {
-                return true;
-
-            }
-              
-            else
-            {
-                return false;
+                this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
             }
         }
-
-        //Leer fichero
-        public static List<FlightPlan> LeerFlightPlanFichero(string NombreFichero)
+        public string Escribirlinea()
         {
-            StreamReader R = new StreamReader(NombreFichero);
-            List<FlightPlan> FlightPlans = new List<FlightPlan>();
-
-            string linea = R.ReadLine();
-            int i = 0;
-            while (linea != null)
-            {
-                string[] trozos =linea.Split(' ');
-                FlightPlan f = new FlightPlan(trozos[0], trozos[1], Convert.ToDouble(trozos[2]), Convert.ToDouble(trozos[3]), Convert.ToDouble(trozos[4]), Convert.ToDouble(trozos[5]), Convert.ToDouble(trozos[6]));
-                FlightPlans.Add(f);
-                linea = R.ReadLine();
-                i++;
-            }
-            R.Close();
-            return FlightPlans;
+            // separar los datos por espacios y escribirlos en una sola línea
+            return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
 
-        //Escribir fichero
-        static void EscribirFlightPlanFichero(List<FlightPlan> lista, string nombreFichero)
-        {
-            StreamWriter W = new StreamWriter(nombreFichero);
-            int i = 0;
-            while (i < lista.Count)
-            {
-                FlightPlan f = lista[i];
-                W.WriteLine("{0} {1} {2} {3} {4} {5} {6}", f.id, f.company, f.initialx, f.initialy, f.finalx, f.finaly, f.velocidad);
-                i++;
-            }
-            W.Close();
 
-        }
+
+
+
     }
 }

@@ -19,17 +19,28 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        private void ImportarFlightPlanTextBox_TextChanged(object sender, EventArgs e)
+ 
+           
+        private void ExportarFlightPlanTextBox_TextChanged(object sender, EventArgs e)
         {
-            List<FlightPlan> f = FlightPlan.LeerFlightPlanFichero(ImportarFlightPlanTextBox.Text);
+
+        }
+
+        private void bttnImportarFlightPlan_Click(object sender, EventArgs e)
+        {
+            FlightPlanList flightPlanList = new FlightPlanList();
 
             try
             {
-                if (f != null && f.Count > 0)
+                if (flightPlanList.CargarDesdeArchivo(ImportarFlightPlanTextBox.Text))
                 {
-                    MessageBox.Show("Se ha cargado correctamente los datos");
+                    MessageBox.Show("Archivo cargado correctamente");
                 }
+                else
+                {
+                    MessageBox.Show("No se ha podido cargar el archivo");
 
+                }
             }
             catch (FileNotFoundException)
             {
@@ -39,11 +50,6 @@ namespace Interfaz
             {
                 MessageBox.Show("El formato del archivo no es correcto");
             }
-        }
-           
-        private void ExportarFlightPlanTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

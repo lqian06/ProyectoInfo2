@@ -59,16 +59,16 @@ namespace Interfaz
             int res;
             try
             {
-                res =Convert.ToInt32(TextTiempoCiclo.Text);
+                res = Convert.ToInt32(TextTiempoCiclo.Text);
                 return;
             }
             catch (FormatException)
             {
                 EstructuraCorrecta = true;
-                MessageBox.Show ("Escriba un número entero en el tiempo de ciclo");
-                TextTiempoCiclo.Text="";
+                MessageBox.Show("Escriba un número entero en el tiempo de ciclo");
+                TextTiempoCiclo.Text = "";
                 EstructuraCorrecta = false;
-                return;       
+                return;
             }
 
         }
@@ -108,9 +108,16 @@ namespace Interfaz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
-            distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
-            Close();
+            try
+            {
+                tiempoCiclo = Convert.ToInt32(TextTiempoCiclo.Text);
+                distanciaSeguridad = Convert.ToDouble(TextDistanciaSeguridad.Text);
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al convertir los valores. Asegúrese de poner números válidos.");
+            }
         }
     }
 }

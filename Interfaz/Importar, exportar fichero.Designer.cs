@@ -60,7 +60,7 @@
             this.ImportarFlightPlanTextBox.Name = "ImportarFlightPlanTextBox";
             this.ImportarFlightPlanTextBox.Size = new System.Drawing.Size(115, 22);
             this.ImportarFlightPlanTextBox.TabIndex = 2;
-            this.ImportarFlightPlanTextBox.TextChanged += new System.EventHandler(this.ImportarFlightPlanTextBox_TextChanged);
+
             // 
             // ExportarFlightPlanTextBox
             // 
@@ -78,6 +78,7 @@
             this.bttnImportarFlightPlan.TabIndex = 4;
             this.bttnImportarFlightPlan.Text = "Aceptar";
             this.bttnImportarFlightPlan.UseVisualStyleBackColor = true;
+            this.bttnImportarFlightPlan.Click += new System.EventHandler(this.bttnImportarFlightPlan_Click);
             // 
             // bttnExportarFlightPlan
             // 

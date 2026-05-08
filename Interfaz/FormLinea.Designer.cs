@@ -161,7 +161,7 @@
             this.seguridad.Size = new System.Drawing.Size(51, 16);
             this.seguridad.TabIndex = 12;
             this.seguridad.Text = "Seguro";
-            this.seguridad.Click += new System.EventHandler(this.seguridad_Click);
+
             // 
             // FormLinea
             // 

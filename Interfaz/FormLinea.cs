@@ -395,28 +395,6 @@ namespace Interfaz
 
         }
 
-        //TWC
-
-        private void seguridad_Click(object sender, EventArgs e)
-        {
-            FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
-            FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
-
-            for (int i = 0; i < ListaVuelos.GetNum(); i++)
-            {
-                if (ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == true)
-                {
-                    seguridad.Text = "No seguro";
-
-                }
-                if (ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(0).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false || ListaVuelos.GetFlightPlan(1).areaSegura(ListaVuelos.GetFlightPlan(i), this.distSeguridad) == false)
-                {
-                    seguridad.Text = "Seguro";
-                }
-
-               
-            }
-        }
 
     }
 }
