@@ -31,19 +31,51 @@ namespace Interfaz
         {
             return planes;
         }
+        public double GetVelocidadSugerida()
+        {
+            return planes.GetFlightPlan(0).GetVelocidad();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        // Variable para indicar si el conflicto se resolvió o no
+        private bool conflictoResuelto = false;
+        public bool GetConflictoResuelto()
+        {
+            return conflictoResuelto;
+        }
+
+        // Método para cambiar la velocidad del avión y resolver el conflicto
         private void SiCambiarVelBtn_Click(object sender, EventArgs e)
         {
-            while (planes.GetFlightPlan(0).GetVelocidad() > velmin && planes.GetFlightPlan(0).HabraConflicto(planes.GetFlightPlan(1), distanciaSegura) == true)
+            double velocidadOriginal = planes.GetFlightPlan(0).GetVelocidad();
+
+            while (planes.GetFlightPlan(0).GetVelocidad() > velmin && planes.GetFlightPlan(0).HabraConflicto(planes.GetFlightPlan(1), distanciaSegura))
             {
                 planes.GetFlightPlan(0).SetVelocidad(planes.GetFlightPlan(0).GetVelocidad() - 5);
             }
-            Close();
+
+            if (planes.GetFlightPlan(0).HabraConflicto(planes.GetFlightPlan(1), distanciaSegura) == false)
+            {
+                conflictoResuelto = true;
+                MessageBox.Show("Velocidad sugerida: " + planes.GetFlightPlan(0).GetVelocidad() + "\nVelocidad anterior: " + velocidadOriginal + "\nConflicto resuelto.");
+                Close();
+            }
+            else
+            {
+                conflictoResuelto = false;
+                MessageBox.Show("No se pudo resolver. Velocidad mínima (" + velmin + " km/h) alcanzada.");
+                Close();
+            }
+
+
+
+
+        }
+            
         }
     }
-}
+

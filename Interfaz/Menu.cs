@@ -8,7 +8,7 @@ namespace Interfaz
     {
         // lista gloval
         FlightPlanList planes = new FlightPlanList();
-        
+
         // Datos del form3
         int distanciaSeguridad = 0;
         int tiempoCiclo = 0;
@@ -49,12 +49,12 @@ namespace Interfaz
         //arte
         private void botón4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        //¿¿Esto qué hace??
         private void Menu_Load(object sender, EventArgs e) { }
-        private void tRESToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void tRESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FlightPlan v1 = planes.GetFlightPlan(0);
             FlightPlan v2 = planes.GetFlightPlan(1);
 
@@ -83,16 +83,18 @@ namespace Interfaz
                     MessageBox.Show("No habrá ningún conflicto entre los vuelos.");
                 }
             }
-            else {
-                    MessageBox.Show("Error: No hay datos de vuelos.");
+            else
+            {
+                MessageBox.Show("Error: No hay datos de vuelos.");
             }
         }
 
         private void ImportarFlightPlan_Click(object sender, EventArgs e)
         {
-           
-           Importar__exportar_fichero form4 = new Importar__exportar_fichero();
-           form4.ShowDialog();
+
+            Importar__exportar_fichero form4 = new Importar__exportar_fichero();
+            form4.SetLista(planes);
+            form4.ShowDialog();
 
         }
     }

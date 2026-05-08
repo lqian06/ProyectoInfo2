@@ -24,7 +24,6 @@ namespace FlightLib
         double velocidad;
         private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
-        private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
         // Constructures
         public FlightPlan(string id, string company, double cpx, double cpy, double fpx, double fpy, double velocidad)
@@ -88,10 +87,8 @@ namespace FlightLib
             return this.company;
         }
 
-        public string GetCompany()
-        {
-            return this.company;
-        }
+
+    
 
         
 
@@ -228,26 +225,7 @@ namespace FlightLib
             }
         }
 
-        public bool SugerirVelocidadParaEvitarColision(FlightPlan b, double distanciaSeguridad, out double vSugerida)
-        {
-            double vOriginal = this.velocidad;
-            double vPrueba = this.velocidad * 0.9;
-            vSugerida = -1;
 
-            while (vPrueba > 10)
-            {
-                this.velocidad = vPrueba;
-                if (this.DistanciaMinima(b) > distanciaSeguridad)
-                {
-                    vSugerida = vPrueba;
-                    this.velocidad = vOriginal;
-                    return true;
-                }
-                vPrueba *= 0.95;
-            }
-            this.velocidad = vOriginal;
-            return false;
-        }
 
         public void Deshacer()
         {
@@ -261,20 +239,6 @@ namespace FlightLib
             // separar los datos por espacios y escribirlos en una sola línea
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
-
-        public void Deshacer()
-        {
-            if (historialPosiciones.Count > 0)
-            {                
-                this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
-            }
-        }
-        public string Escribirlinea()
-        {
-            // separar los datos por espacios y escribirlos en una sola línea
-            return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
-        }
-
 
 
 
