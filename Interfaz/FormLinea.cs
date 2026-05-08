@@ -48,13 +48,13 @@ namespace Interfaz
             inicioA = v1.GetInitialPosition();
             currentA = v1.GetCurrentPosition();
             finalA = v1.GetFinalPosition();
-            velocityA= v1.GetVelocidad();
+            velocityA = v1.GetVelocidad();
 
             idB = v2.GetID();
             inicioB = v2.GetInitialPosition();
             currentB = v2.GetCurrentPosition();
             finalB = v2.GetFinalPosition();
-            velocidadB= v2.GetVelocidad();
+            velocidadB = v2.GetVelocidad();
         }
 
 
@@ -73,6 +73,8 @@ namespace Interfaz
                 {
                     e.Graphics.DrawLine(lapiz, (int)inicio.GetX(), (int)inicio.GetY(), (int)fin.GetX(), (int)fin.GetY());
                 }
+
+
 
                 //Círculo
                 FlightPlanList distancias = new FlightPlanList();
@@ -176,7 +178,7 @@ namespace Interfaz
             }
         }
 
-        
+
         // Botón iniciar simulación
         private void button1_Click(object sender, EventArgs e)
         {
@@ -187,7 +189,7 @@ namespace Interfaz
         }
 
 
-        // botón parar simulación
+        // para papu :v
         private void btnParar_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -195,6 +197,9 @@ namespace Interfaz
             button1.Visible = true;
 
         }
+
+
+
 
         //Botón reiniciar simulación
         private void button5_Click(object sender, EventArgs e)
@@ -210,10 +215,12 @@ namespace Interfaz
                 vuelo.SetCurrentPosition(inicio.GetX(), inicio.GetY());
 
             }
-            
+
             panel1.Invalidate();
             ActualizarGridExterno();
         }
+
+
 
         // Botón añadir 1 ciclo
         private void button2_Click(object sender, EventArgs e)
@@ -252,30 +259,53 @@ namespace Interfaz
                 Position fin = ListaVuelos.GetFlightPlan(i).GetFinalPosition();
                 Position actual = inicio;
 
-            }           
-            
+            }
+
+            /*bool conflicto = ListaVuelos.GetFlightPlan(0).HabraConflicto(ListaVuelos.GetFlightPlan(1), distSeguridad);
+            if (conflicto)
+            {
+                CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
+                formPregunta.SetPlanes(ListaVuelos, distSeguridad);
+                formPregunta.ShowDialog();
+                ListaVuelos = formPregunta.GetPlanes();
+                SetVuelos(ListaVuelos.GetFlightPlan(0), ListaVuelos.GetFlightPlan(1), distSeguridad, tCiclo);
+                if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
+                {
+                    GridDatosVuelos[5, 1].Value = ListaVuelos.GetFlightPlan(0).GetVelocidad();
+                    GridDatosVuelos[5, 2].Value = ListaVuelos.GetFlightPlan(1).GetVelocidad();
+                }
+                
+            }*/
+
             panel1.Invalidate();
 
             //arreglar conflicto
             FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
             FlightPlan v2 = ListaVuelos.GetFlightPlan(1);
 
-            double sugerencia;
-            if (v1.SugerirVelocidadParaEvitarColision(v2, distSeguridad, out sugerencia))
+            if (v1.HabraConflicto(v2, distSeguridad))
             {
                 CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
+                formPregunta.SetPlanes(ListaVuelos, distSeguridad);
+                formPregunta.ShowDialog();
 
-                if (formPregunta.ShowDialog() == DialogResult.OK)
+                if (formPregunta.GetConflictoResuelto())
                 {
-                    v1.SetVelocidad(sugerencia);
+                    ListaVuelos = formPregunta.GetPlanes();
+                    SetVuelos(ListaVuelos.GetFlightPlan(0), ListaVuelos.GetFlightPlan(1), distSeguridad, tCiclo);
+                    ChocaLabel.Text = "No choca";
+                    panel1.Invalidate();
                     ActualizarGridExterno();
-                                        
-                    MessageBox.Show("Velocidad modificada automáticamente para evitar colisión.");
                 }
             }
-        }  
+        }
 
-        
+
+
+        private void GridDatosVuelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
         //abrir grid con información de los vuelos
         private void BtnInfoVuelos_Click(object sender, EventArgs e)
         {
@@ -343,7 +373,15 @@ namespace Interfaz
                 MessageBox.Show("Por favor, ingrese un número válido para la velocidad.");
             }
 
-        }        
+        }
+
+
+
+        private void ChocaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

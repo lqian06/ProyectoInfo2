@@ -22,7 +22,7 @@ namespace FlightLib
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
         double velocidad;
-        private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
+        Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
 
 
@@ -226,7 +226,6 @@ namespace FlightLib
             }
         }
 
-        
         public void Deshacer()
         {
             if (historialPosiciones.Count > 0)
@@ -239,9 +238,5 @@ namespace FlightLib
             // separar los datos por espacios y escribirlos en una sola línea
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
-
-
-
-
     }
 }

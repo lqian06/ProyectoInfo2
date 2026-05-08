@@ -60,7 +60,6 @@
             this.ImportarFlightPlanTextBox.Name = "ImportarFlightPlanTextBox";
             this.ImportarFlightPlanTextBox.Size = new System.Drawing.Size(115, 22);
             this.ImportarFlightPlanTextBox.TabIndex = 2;
-
             // 
             // ExportarFlightPlanTextBox
             // 
@@ -68,7 +67,6 @@
             this.ExportarFlightPlanTextBox.Name = "ExportarFlightPlanTextBox";
             this.ExportarFlightPlanTextBox.Size = new System.Drawing.Size(116, 22);
             this.ExportarFlightPlanTextBox.TabIndex = 3;
-            this.ExportarFlightPlanTextBox.TextChanged += new System.EventHandler(this.ExportarFlightPlanTextBox_TextChanged);
             // 
             // bttnImportarFlightPlan
             // 
@@ -88,6 +86,7 @@
             this.bttnExportarFlightPlan.TabIndex = 5;
             this.bttnExportarFlightPlan.Text = "Aceptar";
             this.bttnExportarFlightPlan.UseVisualStyleBackColor = true;
+            this.bttnExportarFlightPlan.Click += new System.EventHandler(this.bttnExportarFlightPlan_Click_1);
             // 
             // Importar__exportar_fichero
             // 

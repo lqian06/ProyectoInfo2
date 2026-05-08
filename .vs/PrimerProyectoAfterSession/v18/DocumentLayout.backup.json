@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\importar, exportar fichero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\importar, exportar fichero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\cambiarvelocidadpregunta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\cambiarvelocidadpregunta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\cambiarvelocidadpregunta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\cambiarvelocidadpregunta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\importar, exportar fichero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\importar, exportar fichero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\importar, exportar fichero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\importar, exportar fichero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\flightlib\\flightplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44556C78-FA9F-4CFE-8BBB-87D2116977B9}|FlightLib\\FlightLib.csproj|solutionrelative:flightlib\\flightplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\formlinea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\formlinea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Importar, exportar fichero.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Importar, exportar fichero.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.cs*",
+              "RelativeToolTip": "Interfaz\\Importar, exportar fichero.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwA8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:41:49.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Menu.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs",
+              "RelativeToolTip": "Interfaz\\Menu.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAASwF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:42:04.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CambiarVelocidadPregunta.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\CambiarVelocidadPregunta.cs",
+              "RelativeDocumentMoniker": "Interfaz\\CambiarVelocidadPregunta.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\CambiarVelocidadPregunta.cs [Design]*",
+              "RelativeToolTip": "Interfaz\\CambiarVelocidadPregunta.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:41:16.035Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CambiarVelocidadPregunta.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\CambiarVelocidadPregunta.cs",
+              "RelativeDocumentMoniker": "Interfaz\\CambiarVelocidadPregunta.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\CambiarVelocidadPregunta.cs*",
+              "RelativeToolTip": "Interfaz\\CambiarVelocidadPregunta.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:40:02.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Menu.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs [Design]",
+              "RelativeToolTip": "Interfaz\\Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:42:01.777Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Importar, exportar fichero.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Importar, exportar fichero.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.cs [Design]*",
+              "RelativeToolTip": "Interfaz\\Importar, exportar fichero.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:44:21.61Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Importar, exportar fichero.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.Designer.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Importar, exportar fichero.Designer.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Importar, exportar fichero.Designer.cs",
+              "RelativeToolTip": "Interfaz\\Importar, exportar fichero.Designer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:45:02.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FlightPlan.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\FlightLib\\FlightPlan.cs",
+              "RelativeDocumentMoniker": "FlightLib\\FlightPlan.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\FlightLib\\FlightPlan.cs",
+              "RelativeToolTip": "FlightLib\\FlightPlan.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAYwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:21:28.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormLinea.cs",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\FormLinea.cs",
+              "RelativeDocumentMoniker": "Interfaz\\FormLinea.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\FormLinea.cs",
+              "RelativeToolTip": "Interfaz\\FormLinea.cs",
+              "ViewState": "AgIAAGQBAAAAAAAAAADwv4QBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T17:20:21.286Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
