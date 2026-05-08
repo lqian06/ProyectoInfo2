@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimulatorConsole")]
+[assembly: AssemblyTitle("FlightLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SimulatorConsole")]
+[assembly: AssemblyProduct("FlightLib")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ce7e8a4a-f1f7-4eaf-8088-7450a2a8b5a0")]
+[assembly: Guid("44556c78-fa9f-4cfe-8bbb-87d2116977b9")]
 
 // Version information for an assembly consists of the following four values:
 //
