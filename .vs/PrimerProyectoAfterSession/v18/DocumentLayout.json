@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|c:\\users\\favivito\\source\\repos\\lqian06\\proyectoinfo2\\interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0A35A1E7-A084-445F-8F80-AF7CBFEAC83C}|Interfaz\\Interfaz.csproj|solutionrelative:interfaz\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +27,22 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Menu.cs",
+              "ToolTip": "C:\\Users\\Favivito\\source\\repos\\lqian06\\ProyectoInfo2\\Interfaz\\Menu.cs [Design]",
+              "RelativeToolTip": "Interfaz\\Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:50:02.482Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

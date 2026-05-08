@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ButtonNico = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,34 +37,6 @@
             this.BtnConflicto = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(671, 362);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 56);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "boton favian";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(428, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "BotónQian";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // ButtonNico
-            // 
-            this.ButtonNico.BackColor = System.Drawing.Color.Red;
-            this.ButtonNico.Location = new System.Drawing.Point(510, 142);
-            this.ButtonNico.Name = "ButtonNico";
-            this.ButtonNico.Size = new System.Drawing.Size(240, 107);
-            this.ButtonNico.TabIndex = 3;
-            this.ButtonNico.Text = "BOTON NICO";
-            this.ButtonNico.UseVisualStyleBackColor = false;
             // 
             // menuStrip1
             // 
@@ -123,11 +92,11 @@
             // BtnConflicto
             // 
             this.BtnConflicto.Font = new System.Drawing.Font("Comic Sans MS", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConflicto.Location = new System.Drawing.Point(122, 94);
+            this.BtnConflicto.Location = new System.Drawing.Point(162, 203);
             this.BtnConflicto.Name = "BtnConflicto";
-            this.BtnConflicto.Size = new System.Drawing.Size(257, 178);
+            this.BtnConflicto.Size = new System.Drawing.Size(412, 77);
             this.BtnConflicto.TabIndex = 5;
-            this.BtnConflicto.Text = "¿Conflicto?";
+            this.BtnConflicto.Text = "¿Habrá Conflicto?";
             this.BtnConflicto.UseVisualStyleBackColor = true;
             this.BtnConflicto.Click += new System.EventHandler(this.BtnConflicto_Click);
             // 
@@ -138,9 +107,6 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnConflicto);
-            this.Controls.Add(this.ButtonNico);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Menu";
             this.Text = "Form1";
@@ -154,9 +120,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button ButtonNico;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menúToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNOToolStripMenuItem;
