@@ -253,7 +253,7 @@ namespace FlightLib
         {
             // separar los datos por espacios y escribirlos en una sola línea
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
-        }      
+        }   
 
 
 
