@@ -226,7 +226,7 @@ namespace FlightLib
             }
         }
 
-        }
+        
         public void Deshacer()
         {
             if (historialPosiciones.Count > 0)

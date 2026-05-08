@@ -6,3 +6,11 @@ C:\Users\Favivito\source\repos\lqian06\ProyectoInfo2\FlightLib\obj\Debug\FlightL
 C:\Users\Favivito\source\repos\lqian06\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.csproj.Up2Date
 C:\Users\Favivito\source\repos\lqian06\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.dll
 C:\Users\Favivito\source\repos\lqian06\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.pdb
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.csproj.AssemblyReference.cache
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.csproj.CoreCompileInputs.cache
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.dll
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.pdb
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\bin\Debug\FlightLib.dll
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\bin\Debug\FlightLib.pdb
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\bin\Debug\System.Data.SQLite.dll
+C:\Users\Favivito\source\repos\qianliii\ProyectoInfo2\FlightLib\obj\Debug\FlightLib.csproj.Up2Date
