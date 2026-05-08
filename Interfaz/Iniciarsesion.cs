@@ -36,7 +36,7 @@ namespace Interfaz
             }
             else
             {
-                MessageBox.Show("No existes o datos mal escritos");
+                MessageBox.Show("No existes o datos mal escritos.");
             }
             miBBDD.Cerrar();
         }
