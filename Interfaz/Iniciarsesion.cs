@@ -36,7 +36,7 @@ namespace Interfaz
             }
             else
             {
-                MessageBox.Show("No existes o datos mal escritos.");
+                MessageBox.Show("No existes o datos mal escritos");
             }
             miBBDD.Cerrar();
         }
@@ -54,12 +54,12 @@ namespace Interfaz
 
                 if (miBBDD.ValidarUsuario(nuevo))
                 {
-                    MessageBox.Show("Ese nombre de usuario ya está pillado. Elige otro.");
+                    MessageBox.Show("nombre ya eb uso");
                 }
                 else
                 {
                     miBBDD.GuardarUsuario(nuevo);
-                    MessageBox.Show("Te acabas de registrar. ¡Ya puedes darle a Iniciar Sesión!");
+                    MessageBox.Show("Registrado");
 
                     textBox1.Clear();
                     textBox2.Clear();
@@ -69,7 +69,7 @@ namespace Interfaz
             }
             else
             {
-                MessageBox.Show("Rellena los campos primero, anda.");
+                MessageBox.Show("faltan datos");
             }
         }
     }
