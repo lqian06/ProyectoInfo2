@@ -24,6 +24,8 @@ namespace FlightLib
         double velocidad;
         private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
+        private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
+
         // Constructures
         public FlightPlan(string id, string company, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
@@ -86,6 +88,14 @@ namespace FlightLib
             return this.company;
         }
 
+        public string GetCompany()
+        {
+            return this.company;
+        }
+
+        
+
+        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -252,6 +262,18 @@ namespace FlightLib
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
 
+        public void Deshacer()
+        {
+            if (historialPosiciones.Count > 0)
+            {                
+                this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
+            }
+        }
+        public string Escribirlinea()
+        {
+            // separar los datos por espacios y escribirlos en una sola línea
+            return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
+        }
 
 
 

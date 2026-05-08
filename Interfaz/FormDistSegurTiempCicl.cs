@@ -117,7 +117,7 @@ namespace Interfaz
             catch (Exception)
             {
                 MessageBox.Show("Error al convertir los valores. Asegúrese de poner números válidos.");
-            }
+            }            
         }
     }
 }
