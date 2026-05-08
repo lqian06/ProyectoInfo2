@@ -25,6 +25,7 @@ namespace FlightLib
         private Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
 
+
         // Constructures
         public FlightPlan(string id, string company, double cpx, double cpy, double fpx, double fpy, double velocidad)
         {
@@ -87,10 +88,10 @@ namespace FlightLib
             return this.company;
         }
 
-
     
 
         
+
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -225,8 +226,7 @@ namespace FlightLib
             }
         }
 
-
-
+        }
         public void Deshacer()
         {
             if (historialPosiciones.Count > 0)
@@ -239,6 +239,7 @@ namespace FlightLib
             // separar los datos por espacios y escribirlos en una sola línea
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
+
 
 
 
