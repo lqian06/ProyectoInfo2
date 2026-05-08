@@ -87,9 +87,6 @@ namespace FlightLib
             return this.company;
         }
 
-
-    
-
         
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -226,6 +223,18 @@ namespace FlightLib
         }
 
 
+        public void Deshacer()
+        {
+            if (historialPosiciones.Count > 0)
+            {
+                this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
+            }
+        }
+        public string Escribirlinea()
+        {
+            // separar los datos por espacios y escribirlos en una sola línea
+            return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
+        }
 
         public void Deshacer()
         {

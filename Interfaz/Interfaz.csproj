@@ -76,6 +76,12 @@
     <Compile Include="Importar, exportar fichero.Designer.cs">
       <DependentUpon>Importar, exportar fichero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Iniciarsesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iniciarsesion.Designer.cs">
+      <DependentUpon>Iniciarsesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="FormDistSegurTiempCicl.Designer.cs">
       <DependentUpon>FormDistSegurTiempCicl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoUsuario.Designer.cs">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Importar, exportar fichero.resx">
       <DependentUpon>Importar, exportar fichero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iniciarsesion.resx">
+      <DependentUpon>Iniciarsesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
