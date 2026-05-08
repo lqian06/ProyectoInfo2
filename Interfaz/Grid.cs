@@ -11,14 +11,14 @@ using FlightLib;
 
 namespace Interfaz
 {
-    public partial class Grid : Form
+    public partial class Grid : Form // Formulario para mostrar los datos de los vuelos
     {
         FlightPlanList ListaVuelosInterna;
-        public Grid()
+        public Grid() // Constructor del formulario
         {
             InitializeComponent();
         }
-        private void GridDatosVuelos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void GridDatosVuelos_CellClick(object sender, DataGridViewCellEventArgs e) // Evento al hacer clic en una celda
         {
             // Verificamos que la lista no sea nula y tenga al menos 2 vuelos
             if (ListaVuelosInterna != null)
@@ -28,7 +28,7 @@ namespace Interfaz
             }
         }
 
-        public void CargarDatos(FlightPlanList ListaVuelos, string idA, string idB)
+        public void CargarDatos(FlightPlanList ListaVuelos, string idA, string idB) // Método para cargar los datos de los vuelos en el grid
         {
             this.ListaVuelosInterna = ListaVuelos;
 
@@ -64,7 +64,7 @@ namespace Interfaz
             GridDatosVuelos[5, 2].Value = v2.GetVelocidad();
         }
 
-        public void ActualizarValores(FlightPlanList ListaVuelos, string idA, string idB)
+        public void ActualizarValores(FlightPlanList ListaVuelos, string idA, string idB) // Método para actualizar los valores de los vuelos en el grid
         {
             this.ListaVuelosInterna = ListaVuelos;
 

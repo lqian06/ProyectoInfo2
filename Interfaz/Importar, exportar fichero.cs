@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class Importar__exportar_fichero : Form
+    public partial class Importar__exportar_fichero : Form //Form para importar y exportar los datos de los planes de vuelo
     {
-        public Importar__exportar_fichero()
+        public Importar__exportar_fichero() //Iniciar el formulario
         {
             InitializeComponent();
         }
@@ -52,13 +52,13 @@ namespace Interfaz
         //Cogemos los datos del menú de los FlightPlans
         FlightPlanList lista;
 
-        public void SetLista(FlightPlanList lista)
+        public void SetLista(FlightPlanList lista) //Método para establecer la lista de planes de vuelo
         {
             this.lista = lista;
         }
       
 
-        private void bttnExportarFlightPlan_Click_1(object sender, EventArgs e)
+        private void bttnExportarFlightPlan_Click_1(object sender, EventArgs e) // Botón para exportar los datos de los planes de vuelo
         {
             try
             {

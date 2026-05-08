@@ -8,18 +8,18 @@ using System.IO;
 
 namespace FlightLib
 {
-    public class FlightPlanList
+    public class FlightPlanList // clase que contiene un vector de FlightPlan y el número de elementos que hay en el vector
     {
         FlightPlan[] vector = new FlightPlan[100];
         int number = 0;
 
-        public FlightPlanList()
+        public FlightPlanList() // constructor que inicializa el vector y el número de elementos
         {
             FlightPlan[] vector = new FlightPlan[100];
             int number = 0;
         }
 
-        public int AddFlightPlan(FlightPlan p)
+        public int AddFlightPlan(FlightPlan p) // método que añade un FlightPlan al vector
         {
             if (number == 100)
             {
@@ -34,12 +34,12 @@ namespace FlightLib
 
         }
        
-        public int GetNum()
+        public int GetNum() // método que devuelve el número de elementos que hay en el vector
         {
             return number;
         }
 
-        public FlightPlan GetFlightPlan(int i)
+        public FlightPlan GetFlightPlan(int i) // método que devuelve el FlightPlan que hay en la posición i del vector
         {
             if (i < 0 || i >= number)
             { return null; }
@@ -50,7 +50,7 @@ namespace FlightLib
             }
         }
 
-        public void Mover(double tiempo)
+        public void Mover(double tiempo) // método que mueve todos los FlightPlan del vector
         {
             int i = 0;
             while (i < number)
@@ -60,7 +60,7 @@ namespace FlightLib
             }
 
         }
-        public void EscribeConsola()
+        public void EscribeConsola()// método que escribe en consola todos los FlightPlan del vector
         {
             int i = 0;
             while (i < number)
@@ -108,9 +108,8 @@ namespace FlightLib
             }
         }
 
-        public void GuardarEnArchivo(string nombreArchivo)
+        public void GuardarEnArchivo(string nombreArchivo)// crea o sobrescribe el archivo, si exist
         {
-            // El crea o sobrescribe el archivo, si exist
             StreamWriter write = new StreamWriter(nombreArchivo);
             int i = 0;
             while (i < number)

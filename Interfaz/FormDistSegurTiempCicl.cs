@@ -29,7 +29,7 @@ namespace Interfaz
             catch { return 0; }
         }
 
-        public int GetTiempo()
+        public int GetTiempo() //Devuelve el tiempo de ciclo introducido por el usuario, o 0 si no se ha introducido nada o si el formato es incorrecto
         {
             if (string.IsNullOrEmpty(TextTiempoCiclo.Text)) return 0;
             try { return Convert.ToInt32(TextTiempoCiclo.Text); }
@@ -42,7 +42,7 @@ namespace Interfaz
             distanciaSeguridad = distancia;
         }
 
-        public void SetTiempo(int tiempo)
+        public void SetTiempo(int tiempo) //Establece el tiempo de ciclo
         {
             tiempoCiclo = tiempo;
         }
@@ -106,7 +106,7 @@ namespace Interfaz
             TextTiempoCiclo.Text = "10";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //   Botón de guardar
         {
             try
             {

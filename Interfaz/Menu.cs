@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class Menu : Form
+    public partial class Menu : Form // Formulario del menú principal
     {
         // lista gloval
         FlightPlanList planes = new FlightPlanList();
@@ -13,7 +13,7 @@ namespace Interfaz
         int distanciaSeguridad = 0;
         int tiempoCiclo = 0;
 
-        public Menu()
+        public Menu() // Iniciar el formulario
         {
             InitializeComponent();
         }
@@ -46,21 +46,15 @@ namespace Interfaz
             }
         }
 
-        //arte
-        private void botón4ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Menu_Load(object sender, EventArgs e) { }
-        private void tRESToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Menu_Load(object sender, EventArgs e) { } // Cargar el menú
+        private void tRESToolStripMenuItem_Click(object sender, EventArgs e) // Botón para mostrar la línea de tiempo
         {
             FlightPlan v1 = planes.GetFlightPlan(0);
             FlightPlan v2 = planes.GetFlightPlan(1);
 
             if (v1 == null || v2 == null)
             {
-                MessageBox.Show("Error: No hay datos de vuelos. Entra en el botón DOS y dale a Guardar.");
+                MessageBox.Show("Error: No hay datos de vuelos. Entra en el botón Planes de vuelo y crea uno");
                 return;
             }
 
@@ -68,9 +62,9 @@ namespace Interfaz
             ventana.SetVuelos(v1, v2, distanciaSeguridad, tiempoCiclo);
             ventana.Show();
         }
-        private void menúToolStripMenuItem_Click(object sender, EventArgs e) { }
+        private void menúToolStripMenuItem_Click(object sender, EventArgs e) { } // Botón para mostrar la cuadrícula
 
-        private void BtnConflicto_Click(object sender, EventArgs e)
+        private void BtnConflicto_Click(object sender, EventArgs e) // Botón para mostrar si habrá un conflicto entre los vuelos
         {
             if (planes.GetNum() >= 2)
             {
@@ -89,7 +83,7 @@ namespace Interfaz
             }
         }
 
-        private void ImportarFlightPlan_Click(object sender, EventArgs e)
+        private void ImportarFlightPlan_Click(object sender, EventArgs e) // Botón para importar o exportar un fichero con los datos de los vuelos
         {
 
             Importar__exportar_fichero form4 = new Importar__exportar_fichero();

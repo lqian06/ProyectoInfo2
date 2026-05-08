@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interfaz
 {
-    public partial class FormLinea : Form
+    public partial class FormLinea : Form // Formulario principal de la interfaz, donde se muestra la simulación de los vuelos
     {
 
         // Iniciar el formulario
@@ -35,6 +35,7 @@ namespace Interfaz
         Position inicioA, inicioB, currentA, currentB, finalA, finalB, currentA1, currentB1;
         double velocityA, velocidadB;
         Grid ventanaGrid;
+
 
         // Función para establecer los vuelos, la distancia de seguridad y el tiempo de ciclo
         public void SetVuelos(FlightPlan v1, FlightPlan v2, int ds, int tc)
@@ -85,18 +86,19 @@ namespace Interfaz
                         distancias.AddFlightPlan(ListaVuelos.GetFlightPlan(j));
                     }
                 }
-                for (int k = 0; k < distancias.GetNum(); k++)
+
+                for (int k = 0; k < distancias.GetNum(); k++) // Para cada vuelo diferente al actual, se dibuja un círculo de seguridad alrededor del vuelo actual. Si la distancia entre el vuelo actual y el otro vuelo es mayor que el doble de la distancia de seguridad, el círculo se dibuja en naranja. Si la distancia es menor o igual al doble de la distancia de seguridad, el círculo se dibuja en rojo.
                 {
-                    if (ListaVuelos.GetFlightPlan(i).Distancia(distancias.GetFlightPlan(k)) > (distSeguridad * 2))
+                    if (ListaVuelos.GetFlightPlan(i).Distancia(distancias.GetFlightPlan(k)) > (distSeguridad))
                     {
                         Pen lapizSeguro = new Pen(Color.FromArgb(100, Color.Orange), 1);
-                        e.Graphics.DrawEllipse(lapizSeguro, (int)actual.GetX() - distSeguridad, (int)actual.GetY() - distSeguridad, distSeguridad * 2, distSeguridad * 2);
+                        e.Graphics.DrawEllipse(lapizSeguro, (int)actual.GetX() - distSeguridad/2, (int)actual.GetY() - distSeguridad / 2, distSeguridad, distSeguridad);
                         lapizSeguro.Dispose();
                     }
                     else
                     {
                         SolidBrush pintarcirculo = new SolidBrush(Color.Red);
-                        e.Graphics.FillEllipse(pintarcirculo, (float)actual.GetX() - distSeguridad, (float)actual.GetY() - distSeguridad, distSeguridad * 2, distSeguridad * 2);
+                        e.Graphics.FillEllipse(pintarcirculo, (float)actual.GetX() - distSeguridad/2, (float)actual.GetY() - distSeguridad / 2, distSeguridad, distSeguridad);
                         pintarcirculo.Dispose();
                     }
                 }
@@ -261,23 +263,7 @@ namespace Interfaz
 
             }
 
-            /*bool conflicto = ListaVuelos.GetFlightPlan(0).HabraConflicto(ListaVuelos.GetFlightPlan(1), distSeguridad);
-            if (conflicto)
-            {
-                CambiarVelocidadPregunta formPregunta = new CambiarVelocidadPregunta();
-                formPregunta.SetPlanes(ListaVuelos, distSeguridad);
-                formPregunta.ShowDialog();
-                ListaVuelos = formPregunta.GetPlanes();
-                SetVuelos(ListaVuelos.GetFlightPlan(0), ListaVuelos.GetFlightPlan(1), distSeguridad, tCiclo);
-                if (GridDatosVuelos.ColumnCount > 0 && GridDatosVuelos.RowCount > 0)
-                {
-                    GridDatosVuelos[5, 1].Value = ListaVuelos.GetFlightPlan(0).GetVelocidad();
-                    GridDatosVuelos[5, 2].Value = ListaVuelos.GetFlightPlan(1).GetVelocidad();
-                }
-                
-            }*/
-
-            panel1.Invalidate();
+             panel1.Invalidate(); // Para dibujar los vuelos al cargar el formulario
 
             //arreglar conflicto
             FlightPlan v1 = ListaVuelos.GetFlightPlan(0);
@@ -299,13 +285,7 @@ namespace Interfaz
                 }
             }
         }
-
-
-
-        private void GridDatosVuelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
         //abrir grid con información de los vuelos
         private void BtnInfoVuelos_Click(object sender, EventArgs e)
         {
@@ -375,8 +355,7 @@ namespace Interfaz
 
         }
 
-
-
+        // Label para mostrar si los vuelos chocan o no (en procesro)
         private void ChocaLabel_Click(object sender, EventArgs e)
         {
 

@@ -12,7 +12,7 @@ using FlightLib;
 
 namespace Interfaz
 {
-    public partial class MenuAñadirPlan : Form
+    public partial class MenuAñadirPlan : Form //Form para añadir planes de vuelo
     {
         FlightPlan plan_a;
         FlightPlan plan_b;

@@ -13,14 +13,14 @@ using FlightLib;
 
 namespace Interfaz
 {
-    public partial class FormInicioSesion : Form
+    public partial class FormInicioSesion : Form //Form de inicio de sesión
     {
-        public FormInicioSesion()
+        public FormInicioSesion() //Iniciar el formulario
         {            
             InitializeComponent();
         }
 
-        private void BotonIniciarSesion_Click(object sender, EventArgs e)
+        private void BotonIniciarSesion_Click(object sender, EventArgs e) // Botón para iniciar sesión
         {
             Usuario user = new Usuario();
             user.SetNombre(textBox1.Text);
@@ -42,7 +42,7 @@ namespace Interfaz
             miBBDD.Cerrar();
         }
 
-        private void Botoncrearusuario_Click(object sender, EventArgs e)
+        private void Botoncrearusuario_Click(object sender, EventArgs e) // Botón para crear un nuevo usuario
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {

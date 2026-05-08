@@ -21,7 +21,7 @@ namespace FlightLib
         Position initialPosition;
         Position currentPosition; // posicion actual
         Position finalPosition; // posicion final
-        double velocidad;
+        double velocidad; //velocidad en km/h
         Stack<Position> historialPosiciones = new Stack<Position>(); //historial de posiciones
 
 
@@ -39,73 +39,59 @@ namespace FlightLib
 
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        public Position GetCurrentPosition()
+        public Position GetCurrentPosition() // devuelve la posición actual del vuelo
         {
             return currentPosition;
         }
-        public void SetCurrentPosition(double x, double y)
+        public void SetCurrentPosition(double x, double y) // establece la posición actual del vuelo
         {
             currentPosition = new Position(x, y);
         }
 
-        public void SetID(string id)
+        public void SetID(string id) // establece el identificador del vuelo
         {
             this.id = id;
         }
-        public string GetID()
+        public string GetID() // devuelve el identificador del vuelo
         {
             return id;
         }
 
-        public void SetVelocidad(double velocidad)
+        public void SetVelocidad(double velocidad) // establece la velocidad del vuelo
         {
             this.velocidad = velocidad;
         }
-        public double GetVelocidad()
+        public double GetVelocidad() // devuelve la velocidad del vuelo
         {
             return this.velocidad;
         }
 
-        public Position GetFinalPosition()
+        public Position GetFinalPosition() // devuelve la posición final del vuelo
         {
             return this.finalPosition;
         }
-        public void SetFinalPosition(double x, double y)
+        public void SetFinalPosition(double x, double y) // establece la posición final del vuelo
         {
             this.finalPosition = new Position(x, y);
         }
 
-        public Position GetInitialPosition()
+        public Position GetInitialPosition() // devuelve la posición inicial del vuelo
         {
             return this.initialPosition;
         }
-        public void SetInitialPosition(double x, double y)
+        public void SetInitialPosition(double x, double y) // establece la posición inicial del vuelo
         {
             this.initialPosition = new Position(x, y);
         }
-        public string GetCompany()
+        public string GetCompany() // devuelve la compañia del vuelo
         {
             return this.company;
-        }
-
-    
-
+        }        
         
-
-
         //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
-        //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-
-
-
-        public void Mover(double tiempo)
-        // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
+        public void Mover(double tiempo) // Mueve el vuelo a la posición correspondiente a viajar durante el tiempo que se recibe como parámetro
         {
-
             // Guardamos la posición actual en el historial de posiciones
             historialPosiciones.Push(new Position(currentPosition.GetX(), currentPosition.GetY()));
 
@@ -135,8 +121,7 @@ namespace FlightLib
 
         }
 
-        // Hacer un metodo que diga si un vuelo ha llegado a su destino
-        public bool HasArrived()
+        public bool HasArrived() // Devuelve true si el vuelo ha llegado a su destino
         {
             bool resultado = false;
             if ((Math.Abs(currentPosition.GetX() - initialPosition.GetX()) >= Math.Abs(finalPosition.GetX() - initialPosition.GetX())) && (Math.Abs(currentPosition.GetY() - initialPosition.GetY()) >= Math.Abs(finalPosition.GetY() - initialPosition.GetY())))
@@ -159,8 +144,7 @@ namespace FlightLib
             return conclicto;
         }
 
-        public void EscribeConsola()
-        // escribe en consola los datos del plan de vuelo
+        public void EscribeConsola() // escribe en consola los datos del plan de vuelo
         {
             Console.WriteLine("******************************");
             Console.WriteLine("Datos del vuelo: ");
@@ -174,18 +158,18 @@ namespace FlightLib
             Console.WriteLine("******************************");
         }
 
-        public void Restart()
+        public void Restart() // reinicia el vuelo a su posición inicial
         {
             this.SetCurrentPosition(initialPosition.GetX(), initialPosition.GetY());
         }
 
-        public double Distancia(FlightPlan b)
+        public double Distancia(FlightPlan b) // devuelve la distancia entre vuelos
         {
             double d = Math.Sqrt((b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) * (b.GetCurrentPosition().GetX() - this.GetCurrentPosition().GetX()) + (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()) * (b.GetCurrentPosition().GetY() - this.GetCurrentPosition().GetY()));
             return d;
         }
 
-        public double DistanciaMinima(FlightPlan b)
+        public double DistanciaMinima(FlightPlan b) // devuelve la distancia mínima entre dos vuelos
         {
             double tiempoMinimo;
             double distanciaMinima;
@@ -214,7 +198,7 @@ namespace FlightLib
 
         }
 
-        public bool HabraConflicto(FlightPlan b, int distSeguridad)
+        public bool HabraConflicto(FlightPlan b, int distSeguridad) //revisa si habra conflicto
         {
             if (this.DistanciaMinima(b) <= distSeguridad)
             {
@@ -226,16 +210,15 @@ namespace FlightLib
             }
         }
 
-        public void Deshacer()
+        public void Deshacer() // deshace el último movimiento del vuelo
         {
             if (historialPosiciones.Count > 0)
             {
                 this.currentPosition = historialPosiciones.Pop(); //recuperar la última posición del historial y establecerla como la posición actual
             }
         }
-        public string Escribirlinea()
+        public string Escribirlinea() // escribe en una sola línea los datos del plan de vuelo, separados por espacios
         {
-            // separar los datos por espacios y escribirlos en una sola línea
             return id + " " + company + " " + currentPosition.GetX() + " " + currentPosition.GetY() + " " + finalPosition.GetX() + " " + finalPosition.GetY() + " " + velocidad;
         }
     }

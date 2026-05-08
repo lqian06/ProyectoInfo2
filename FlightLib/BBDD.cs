@@ -8,6 +8,7 @@ using System.Data.SQLite;
 
 namespace FlightLib
 {
+    //Definir clase Usuario con propiedades Nombre y Contraseña, con sus respectivos métodos Get y Set
     public class Usuario
     {
         private string nombre;
@@ -33,20 +34,27 @@ namespace FlightLib
             this.contrasena = valor;
         }
     }
+
+    //Definir clase BBDD
     public class BBDD
     {
-        SQLiteConnection cnx;
-        public void Iniciar()
+        SQLiteConnection cnx; // Variable de conexión a la base de datos
+        
+        // Método para iniciar la conexión a la base de datos
+        public void Iniciar() 
         {
             string dataSource = "Data Source=usuarios.db";
             cnx = new SQLiteConnection(dataSource);
             cnx.Open();
         }
+
+        // Método para cerrar la conexión a la base de datos
         public void Cerrar()
         {
             cnx.Close();
         }
 
+        // Método para obtener todos los clientes de la base de datos
         public DataTable GetClientes()
         {
             DataTable dt = new DataTable();
@@ -56,6 +64,7 @@ namespace FlightLib
             return dt;
         }
 
+        // Método para validar si un usuario existe en la base de datos
         public bool ValidarUsuario(Usuario user)
         {
             string sql = "SELECT COUNT(*) FROM clientes WHERE usuario = '" + user.GetNombre() + "' AND contraseña = '" + user.GetContrasena() + "'";
@@ -68,6 +77,7 @@ namespace FlightLib
             return count > 0;
         }
 
+        // Método para guardar un nuevo usuario en la base de datos
         public void GuardarUsuario(Usuario user)
         {
             string nombre = user.GetNombre();
